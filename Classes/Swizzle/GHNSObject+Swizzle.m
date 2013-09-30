@@ -122,8 +122,10 @@ BOOL GH_PerformSwizzle(Class klass, SEL origSel, SEL altSel, BOOL forInstance) {
 	
 	// bail if one of the methods doesn't exist anywhere
 	// with all we did, this should not happen, though
-	if (origMethod == NULL || altMethod == NULL)
+	if (origMethod == NULL || altMethod == NULL) {
+		free(mlist);
 		return NO;
+	}
 	
 	// now swizzle
 	method_exchangeImplementations(origMethod, altMethod);
