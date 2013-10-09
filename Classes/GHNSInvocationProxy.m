@@ -170,10 +170,10 @@ delay=delay_, selector=selector_, delegate=delegate_, detachCallback=detachCallb
 }
 
 - (void)invoke:(NSInvocation *)invocation {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	[invocation invoke];
-	[self performSelector:@selector(_callback) onThread:thread_ withObject:nil waitUntilDone:YES];
-	[pool drain];
+  @autoreleasepool {
+      [invocation invoke];
+      [self performSelector:@selector(_callback) onThread:thread_ withObject:nil waitUntilDone:YES];
+  }
 }
 
 - (void)_callback {
