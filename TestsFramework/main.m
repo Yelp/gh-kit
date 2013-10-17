@@ -76,5 +76,6 @@ int main(int argc, char *argv[]) {
       [NSApp run];
       [app release];    
     }
+    return retVal;
   }
 }
