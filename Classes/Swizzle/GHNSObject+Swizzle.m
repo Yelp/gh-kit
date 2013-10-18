@@ -72,19 +72,19 @@ BOOL GH_PerformSwizzle(Class klass, SEL origSel, SEL altSel, BOOL forInstance) {
 	// if not found or not added, bail out
 	if ( origMethod == NULL ) {
 		origMethod = class_getInstanceMethod(iterKlass, origSel);
-		if ( origMethod == NULL )
+		if ( origMethod == NULL || class_addMethod(iterKlass, method_getName(origMethod), method_getImplementation(origMethod), method_getTypeEncoding(origMethod)) == NO ) {
+			free(mlist);
 			return NO;
-		if ( class_addMethod(iterKlass, method_getName(origMethod), method_getImplementation(origMethod), method_getTypeEncoding(origMethod)) == NO )
-			return NO;
+		}
 	}
 	
 	// same thing with altMethod
 	if ( altMethod == NULL ) {
 		altMethod = class_getInstanceMethod(iterKlass, altSel);
-		if ( altMethod == NULL ) 
+		if ( altMethod == NULL || class_addMethod(iterKlass, method_getName(altMethod), method_getImplementation(altMethod), method_getTypeEncoding(altMethod)) == NO ) {
+			free(mlist);
 			return NO;
-		if ( class_addMethod(iterKlass, method_getName(altMethod), method_getImplementation(altMethod), method_getTypeEncoding(altMethod)) == NO )
-			return NO;
+		}
 	}
 	
 	//clean up
@@ -114,8 +114,10 @@ BOOL GH_PerformSwizzle(Class klass, SEL origSel, SEL altSel, BOOL forInstance) {
 	
 	// bail if one of the methods doesn't exist anywhere
 	// with all we did, this should not happen, though
-	if (origMethod == NULL || altMethod == NULL)
+	if (origMethod == NULL || altMethod == NULL) {
+		free(mlist);
 		return NO;
+	}
 	
 	// now swizzle
 	method_exchangeImplementations(origMethod, altMethod);
