@@ -383,19 +383,19 @@ static void KVOSubclassRemoveObserverForKeyPathContext(id self, SEL _cmd, id obs
 static void CallCFReleaseLater(CFTypeRef cf)
 {
     mach_port_t thread = mach_thread_self(); // must "release" this
-    
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    SEL sel = @selector(releaseLater:fromThread:);
-    NSInvocation *inv = [NSInvocation invocationWithMethodSignature: [GH_MAZeroingWeakRef methodSignatureForSelector: sel]];
-    [inv setTarget: [GH_MAZeroingWeakRef class]];
-    [inv setSelector: sel];
-    [inv setArgument: &cf atIndex: 2];
-    [inv setArgument: &thread atIndex: 3];
-    
-    NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithInvocation: inv];
-    [gCFDelayedDestructionQueue addOperation: op];
-    [op release];
-    [pool release];
+  
+    @autoreleasepool {
+        SEL sel = @selector(releaseLater:fromThread:);
+        NSInvocation *inv = [NSInvocation invocationWithMethodSignature: [GH_MAZeroingWeakRef methodSignatureForSelector: sel]];
+        [inv setTarget: [GH_MAZeroingWeakRef class]];
+        [inv setSelector: sel];
+        [inv setArgument: &cf atIndex: 2];
+        [inv setArgument: &thread atIndex: 3];
+        
+        NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithInvocation: inv];
+        [gCFDelayedDestructionQueue addOperation: op];
+        [op release];
+    }
 }
 
 static const void *kPCThreadExited = &kPCThreadExited;
@@ -801,27 +801,25 @@ static void UnregisterRef(GH_MAZeroingWeakRef *ref)
     {
         // wrap a pool around this code, otherwise it artificially extends
         // the lifetime of the target object
-        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-        
-        id target = [self target];
-        if(target != nil) @synchronized(target)
-        {
-            static void *associatedKey = &associatedKey;
-            NSMutableSet *cleanupHelpers = objc_getAssociatedObject(target, associatedKey);
-            
-            if(cleanupHelpers == nil)
+        @autoreleasepool {
+            id target = [self target];
+            if(target != nil) @synchronized(target)
             {
-                cleanupHelpers = [NSMutableSet set];
-                objc_setAssociatedObject(target, associatedKey, cleanupHelpers, OBJC_ASSOCIATION_RETAIN);
+                static void *associatedKey = &associatedKey;
+                NSMutableSet *cleanupHelpers = objc_getAssociatedObject(target, associatedKey);
+                
+                if(cleanupHelpers == nil)
+                {
+                    cleanupHelpers = [NSMutableSet set];
+                    objc_setAssociatedObject(target, associatedKey, cleanupHelpers, OBJC_ASSOCIATION_RETAIN);
+                }
+                
+                _GH_MAZeroingWeakRefCleanupHelper *helper = [[_GH_MAZeroingWeakRefCleanupHelper alloc] initWithRef: self target: target];
+                [cleanupHelpers addObject:helper];
+                
+                [helper release];
             }
-            
-            _GH_MAZeroingWeakRefCleanupHelper *helper = [[_GH_MAZeroingWeakRefCleanupHelper alloc] initWithRef: self target: target];
-            [cleanupHelpers addObject:helper];
-            
-            [helper release];
         }
-        
-        [pool release];
     }
 }
 #endif
