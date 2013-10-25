@@ -41,8 +41,8 @@
 @implementation NSString(GHUtils)
 
 + (id)gh_stringWithFormat:(NSString *)format arguments:(NSArray *)arguments {
-  char *argList = (char *)malloc(sizeof(NSString *) * [arguments count]);
-  [arguments getObjects:(id *)argList];
+  id *argList = calloc(arguments.count, sizeof(id));
+  [arguments getObjects:argList range:NSMakeRange(0, arguments.count)];
   NSString *result = [[[NSString alloc] initWithFormat:format arguments:(void *)argList] autorelease];
   free(argList);
   return result;
