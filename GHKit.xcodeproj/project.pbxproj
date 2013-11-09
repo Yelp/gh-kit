@@ -7,18 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		006BD87B15AE2FC900D493AE /* GHNSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 006BD87915AE2FC900D493AE /* GHNSData+Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		006BD87C15AE2FC900D493AE /* GHNSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 006BD87915AE2FC900D493AE /* GHNSData+Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		006BD87D15AE2FC900D493AE /* GHNSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 006BD87A15AE2FC900D493AE /* GHNSData+Base64.m */; };
-		006BD87E15AE2FC900D493AE /* GHNSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 006BD87A15AE2FC900D493AE /* GHNSData+Base64.m */; };
-		006BD87F15AE2FD700D493AE /* GHNSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 006BD87A15AE2FC900D493AE /* GHNSData+Base64.m */; };
-		006BD88015AE2FD800D493AE /* GHNSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 006BD87A15AE2FC900D493AE /* GHNSData+Base64.m */; };
-		006BD88415AE2FF500D493AE /* ybase64.c in Sources */ = {isa = PBXBuildFile; fileRef = 006BD88115AE2FF400D493AE /* ybase64.c */; };
-		006BD88515AE2FF500D493AE /* ybase64.c in Sources */ = {isa = PBXBuildFile; fileRef = 006BD88115AE2FF400D493AE /* ybase64.c */; };
-		006BD88615AE2FF500D493AE /* ybase64.c in Sources */ = {isa = PBXBuildFile; fileRef = 006BD88115AE2FF400D493AE /* ybase64.c */; };
-		006BD88715AE2FF500D493AE /* ybase64.c in Sources */ = {isa = PBXBuildFile; fileRef = 006BD88115AE2FF400D493AE /* ybase64.c */; };
-		006BD88815AE2FF500D493AE /* ybase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 006BD88215AE2FF400D493AE /* ybase64.h */; };
-		006BD88915AE2FF500D493AE /* ybase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 006BD88215AE2FF400D493AE /* ybase64.h */; };
 		006BD88A15AE2FF500D493AE /* ydefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 006BD88315AE2FF500D493AE /* ydefines.h */; };
 		006BD88B15AE2FF500D493AE /* ydefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 006BD88315AE2FF500D493AE /* ydefines.h */; };
 		007DA66A154E055C008574F9 /* GHKit-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 007DA669154E055C008574F9 /* GHKit-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -318,10 +306,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		006BD87915AE2FC900D493AE /* GHNSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GHNSData+Base64.h"; sourceTree = "<group>"; };
-		006BD87A15AE2FC900D493AE /* GHNSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GHNSData+Base64.m"; sourceTree = "<group>"; };
-		006BD88115AE2FF400D493AE /* ybase64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ybase64.c; sourceTree = "<group>"; };
-		006BD88215AE2FF400D493AE /* ybase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ybase64.h; sourceTree = "<group>"; };
 		006BD88315AE2FF500D493AE /* ydefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ydefines.h; sourceTree = "<group>"; };
 		007DA669154E055C008574F9 /* GHKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GHKit-Prefix.pch"; sourceTree = "<group>"; };
 		0084E6851601103D0036580E /* GH_MAZeroingWeakRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GH_MAZeroingWeakRef.h; sourceTree = "<group>"; };
@@ -584,10 +568,6 @@
 				00D022B5154DF1C5003BAAC3 /* GHReversableDictionary.m */,
 				00D022B6154DF1C5003BAAC3 /* GHValidators.h */,
 				00D022B7154DF1C5003BAAC3 /* GHValidators.m */,
-				006BD87915AE2FC900D493AE /* GHNSData+Base64.h */,
-				006BD87A15AE2FC900D493AE /* GHNSData+Base64.m */,
-				006BD88115AE2FF400D493AE /* ybase64.c */,
-				006BD88215AE2FF400D493AE /* ybase64.h */,
 				006BD88315AE2FF500D493AE /* ydefines.h */,
 				00D022B8154DF1C5003BAAC3 /* hmac.c */,
 				00D022B9154DF1C5003BAAC3 /* hmac.h */,
@@ -811,8 +791,6 @@
 				00D02382154DF44D003BAAC3 /* GHNSString+UIKitUtils.h in Headers */,
 				00D02384154DF456003BAAC3 /* GHUIColor+Utils.h in Headers */,
 				007DA66A154E055C008574F9 /* GHKit-Prefix.pch in Headers */,
-				006BD87B15AE2FC900D493AE /* GHNSData+Base64.h in Headers */,
-				006BD88815AE2FF500D493AE /* ybase64.h in Headers */,
 				006BD88A15AE2FF500D493AE /* ydefines.h in Headers */,
 				0084E6881601103D0036580E /* GH_MAZeroingWeakRef.h in Headers */,
 				0084E68C1601103D0036580E /* GH_MAZeroingWeakRefNativeZWRNotAllowedTable.h in Headers */,
@@ -861,8 +839,6 @@
 				00D0238A154DF46A003BAAC3 /* GHNSXMLElement+Utils.h in Headers */,
 				00D0238C154DF46F003BAAC3 /* GHNSXMLNode+Utils.h in Headers */,
 				00D0238E154DF475003BAAC3 /* GHViewAnimation.h in Headers */,
-				006BD87C15AE2FC900D493AE /* GHNSData+Base64.h in Headers */,
-				006BD88915AE2FF500D493AE /* ybase64.h in Headers */,
 				006BD88B15AE2FF500D493AE /* ydefines.h in Headers */,
 				0084E6891601103D0036580E /* GH_MAZeroingWeakRef.h in Headers */,
 				0084E68D1601103D0036580E /* GH_MAZeroingWeakRefNativeZWRNotAllowedTable.h in Headers */,
@@ -1035,8 +1011,6 @@
 				00D02380154DF440003BAAC3 /* GHNSObject+Swizzle.m in Sources */,
 				00D02383154DF44F003BAAC3 /* GHNSString+UIKitUtils.m in Sources */,
 				00D02385154DF45A003BAAC3 /* GHUIColor+Utils.m in Sources */,
-				006BD87D15AE2FC900D493AE /* GHNSData+Base64.m in Sources */,
-				006BD88415AE2FF500D493AE /* ybase64.c in Sources */,
 				0084E68A1601103D0036580E /* GH_MAZeroingWeakRef.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1080,8 +1054,6 @@
 				00D0238B154DF46D003BAAC3 /* GHNSXMLElement+Utils.m in Sources */,
 				00D0238D154DF473003BAAC3 /* GHNSXMLNode+Utils.m in Sources */,
 				00D0238F154DF479003BAAC3 /* GHViewAnimation.m in Sources */,
-				006BD87E15AE2FC900D493AE /* GHNSData+Base64.m in Sources */,
-				006BD88515AE2FF500D493AE /* ybase64.c in Sources */,
 				0084E68B1601103D0036580E /* GH_MAZeroingWeakRef.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1146,8 +1118,6 @@
 				00D023FD154DF902003BAAC3 /* sha1.c in Sources */,
 				00D023FE154DF905003BAAC3 /* GHNSObject+Swizzle.m in Sources */,
 				00D0240E154DFA87003BAAC3 /* GTMRegex.m in Sources */,
-				006BD87F15AE2FD700D493AE /* GHNSData+Base64.m in Sources */,
-				006BD88615AE2FF500D493AE /* ybase64.c in Sources */,
 				0084E6911601106E0036580E /* GH_MAZeroingWeakRefTest.m in Sources */,
 				0084E693160111220036580E /* GH_MAZeroingWeakRef.m in Sources */,
 			);
@@ -1218,8 +1188,6 @@
 				00D02475154DFDCD003BAAC3 /* GHReversableDictionaryTest.m in Sources */,
 				00D02476154DFDD0003BAAC3 /* GHValidatorsTest.m in Sources */,
 				00D02477154DFDF1003BAAC3 /* GTMRegex.m in Sources */,
-				006BD88015AE2FD800D493AE /* GHNSData+Base64.m in Sources */,
-				006BD88715AE2FF500D493AE /* ybase64.c in Sources */,
 				0084E6921601106E0036580E /* GH_MAZeroingWeakRefTest.m in Sources */,
 				0084E694160111220036580E /* GH_MAZeroingWeakRef.m in Sources */,
 			);
