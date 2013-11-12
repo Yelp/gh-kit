@@ -50,6 +50,15 @@
 - (BOOL)gh_isBlank;
 
 /*!
+ Check if string is not blank
+ Use in cases where clang cares whether or not
+ the string is nil: if ([str gh_isNotBlank]) dict[key] = str;
+ 
+ @result YES if the string is not empty (after stripping)
+ */
+- (BOOL)gh_isNotBlank;
+
+/*!
  Check if equals ignoring case.
  
  @param s String
