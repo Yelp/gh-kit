@@ -74,6 +74,10 @@
   return [s gh_isBlank];
 }
 
+- (BOOL)gh_isNotBlank {
+  return ![self gh_isBlank];
+}
+
 - (BOOL)gh_isEqualIgnoreCase:(NSString *)s {
 	return [self compare:s options:NSCaseInsensitiveSearch] == NSOrderedSame;
 }
