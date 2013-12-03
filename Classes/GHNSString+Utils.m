@@ -288,13 +288,11 @@ static NSDictionary *gh_gTruncateMiddle = nil;
 }
 
 - (NSString *)gh_MD5WithEncoder:(id)encoder {
-  const char *str = [self UTF8String];
-  unsigned char result[CC_MD5_DIGEST_LENGTH];
-  CC_MD5(str, strlen(str), result);
-  NSData *data = [[NSData alloc] initWithBytes:result length:16];
-  NSString *base64EncodedString = [data base64Encoding];
-  [data release];
-  return base64EncodedString;
+  return [self gh_MD5Base64];
+}
+
+- (NSString *)gh_MD5Base64 {
+  return [[[self gh_MD5] dataUsingEncoding:NSUTF8StringEncoding] base64Encoding];
 }
 
 @end
