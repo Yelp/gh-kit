@@ -27,7 +27,6 @@
 //
 
 #import "GHNSString+Utils.h"
-#import "GHNSData+Base64.h"
 #import <CommonCrypto/CommonDigest.h>
 
 //! @cond DEV
@@ -293,10 +292,11 @@ static NSDictionary *gh_gTruncateMiddle = nil;
 }
 
 - (NSString *)gh_MD5WithEncoder:(id)encoder {
-  const char *str = [self UTF8String];
-  unsigned char result[CC_MD5_DIGEST_LENGTH];
-  CC_MD5(str, strlen(str), result);  
-  return [NSData gh_base64EncodeWithBytes:result length:16];
+  return [self gh_MD5Base64];
+}
+
+- (NSString *)gh_MD5Base64 {
+  return [[[self gh_MD5] dataUsingEncoding:NSUTF8StringEncoding] base64Encoding];
 }
 
 @end

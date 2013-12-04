@@ -295,8 +295,16 @@
  
  @param encoder Base64 encoder, that implements: (NSData *)encodeBytes:(const void *)bytes length:(NSUInteger)length;
  @result Base64 encoded MD5
+ @deprecated This method never used encoder and always returned a base64 encoded MD5 string.
+ Use gh_MD5Base64 instead.
  */
-- (NSString *)gh_MD5WithEncoder:(id)encoder;
+- (NSString *)gh_MD5WithEncoder:(id)encoder DEPRECATED_ATTRIBUTE;
+
+/*!
+ @abstract MD5 encodes the receiver and then base 64 encodes the result
+ @result MD5 and then base 64 encoded version of the receiver
+ */
+- (NSString *)gh_MD5Base64;
 
 @end
 
