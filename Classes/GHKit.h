@@ -78,5 +78,4 @@
 
 #import "GHNSObject+Utils.h"
 #import "GHNSString+XML.h"
-#import "GHNSData+Base64.h"
 
