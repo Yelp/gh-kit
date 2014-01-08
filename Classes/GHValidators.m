@@ -33,8 +33,9 @@
 
 + (BOOL)isEmailAddress:(NSString *)str {
   // Simple regex from http://www.regular-expressions.info/email.html
-  NSString *emailRegexPattern = @"^[A-Z0-9._%+-\\'\"]+@[A-Z0-9.-]+\\.[A-Z]+$";
-  NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:emailRegexPattern options:NSRegularExpressionCaseInsensitive error:nil];
+  NSString *emailRegexPattern = @"^[A-Z0-9._%+\\-\\'\"]+@[A-Z0-9.-]+\\.[A-Z]+$";
+  NSError *error = nil;
+  NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:emailRegexPattern options:NSRegularExpressionCaseInsensitive error:&error];
   return ([regex numberOfMatchesInString:str options:0 range:NSMakeRange(0, [str length])] == 1);
 }
 
