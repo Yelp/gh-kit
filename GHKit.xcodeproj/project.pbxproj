@@ -222,7 +222,6 @@
 		00D023FE154DF905003BAAC3 /* GHNSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022CE154DF1C5003BAAC3 /* GHNSObject+Swizzle.m */; };
 		00D02400154DF93F003BAAC3 /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D023FF154DF93F003BAAC3 /* GHUnitIOS.framework */; };
 		00D0240B154DFA69003BAAC3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D0240A154DFA67003BAAC3 /* Security.framework */; };
-		00D0240E154DFA87003BAAC3 /* GTMRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D0240D154DFA87003BAAC3 /* GTMRegex.m */; };
 		00D02410154DFAC0003BAAC3 /* test.file in Resources */ = {isa = PBXBuildFile; fileRef = 00D0240F154DFABF003BAAC3 /* test.file */; };
 		00D02417154DFB0C003BAAC3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D022E9154DF226003BAAC3 /* Cocoa.framework */; };
 		00D0241F154DFB0D003BAAC3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D0241E154DFB0D003BAAC3 /* main.m */; };
@@ -288,7 +287,6 @@
 		00D02474154DFDCB003BAAC3 /* GHNSStringXMLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D023AE154DF89A003BAAC3 /* GHNSStringXMLTest.m */; };
 		00D02475154DFDCD003BAAC3 /* GHReversableDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D023AF154DF89A003BAAC3 /* GHReversableDictionaryTest.m */; };
 		00D02476154DFDD0003BAAC3 /* GHValidatorsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D023B0154DF89A003BAAC3 /* GHValidatorsTest.m */; };
-		00D02477154DFDF1003BAAC3 /* GTMRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D0240D154DFA87003BAAC3 /* GTMRegex.m */; };
 		00D02479154DFE14003BAAC3 /* test.file in Resources */ = {isa = PBXBuildFile; fileRef = 00D0240F154DFABF003BAAC3 /* test.file */; };
 /* End PBXBuildFile section */
 
@@ -425,10 +423,7 @@
 		00D023C9154DF8A5003BAAC3 /* NSURLUtilsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLUtilsTest.m; sourceTree = "<group>"; };
 		00D023CA154DF8A5003BAAC3 /* ReadonlyCopyTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadonlyCopyTest.m; sourceTree = "<group>"; };
 		00D023FF154DF93F003BAAC3 /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = Frameworks/GHUnitIOS.framework; sourceTree = "<group>"; };
-		00D02404154DFA2B003BAAC3 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		00D0240A154DFA67003BAAC3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		00D0240C154DFA87003BAAC3 /* GTMRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMRegex.h; sourceTree = "<group>"; };
-		00D0240D154DFA87003BAAC3 /* GTMRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMRegex.m; sourceTree = "<group>"; };
 		00D0240F154DFABF003BAAC3 /* test.file */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.file; sourceTree = "<group>"; };
 		00D02415154DFB0C003BAAC3 /* GHKitTestsFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHKitTestsFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D0241A154DFB0D003BAAC3 /* TestsFramework-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TestsFramework-Info.plist"; sourceTree = "<group>"; };
@@ -659,7 +654,6 @@
 		00D0239B154DF67D003BAAC3 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				00D02401154DFA2B003BAAC3 /* GTM */,
 				00D023B9154DF8A4003BAAC3 /* NSArrayUtilsTest.m */,
 				00D023BA154DF8A4003BAAC3 /* NSDateParsingTest.m */,
 				00D023BB154DF8A4003BAAC3 /* NSDateUtilsTest.m */,
@@ -705,16 +699,6 @@
 				00D023B2154DF89A003BAAC3 /* GHUIColorUtilsTest.m */,
 			);
 			path = iOS;
-			sourceTree = "<group>";
-		};
-		00D02401154DFA2B003BAAC3 /* GTM */ = {
-			isa = PBXGroup;
-			children = (
-				00D0240C154DFA87003BAAC3 /* GTMRegex.h */,
-				00D0240D154DFA87003BAAC3 /* GTMRegex.m */,
-				00D02404154DFA2B003BAAC3 /* GTMDefines.h */,
-			);
-			path = GTM;
 			sourceTree = "<group>";
 		};
 		00D02418154DFB0C003BAAC3 /* TestsFramework */ = {
@@ -1117,7 +1101,6 @@
 				00D023FC154DF8FE003BAAC3 /* GHUIColor+Utils.m in Sources */,
 				00D023FD154DF902003BAAC3 /* sha1.c in Sources */,
 				00D023FE154DF905003BAAC3 /* GHNSObject+Swizzle.m in Sources */,
-				00D0240E154DFA87003BAAC3 /* GTMRegex.m in Sources */,
 				0084E6911601106E0036580E /* GH_MAZeroingWeakRefTest.m in Sources */,
 				0084E693160111220036580E /* GH_MAZeroingWeakRef.m in Sources */,
 			);
@@ -1187,7 +1170,6 @@
 				00D02474154DFDCB003BAAC3 /* GHNSStringXMLTest.m in Sources */,
 				00D02475154DFDCD003BAAC3 /* GHReversableDictionaryTest.m in Sources */,
 				00D02476154DFDD0003BAAC3 /* GHValidatorsTest.m in Sources */,
-				00D02477154DFDF1003BAAC3 /* GTMRegex.m in Sources */,
 				0084E6921601106E0036580E /* GH_MAZeroingWeakRefTest.m in Sources */,
 				0084E694160111220036580E /* GH_MAZeroingWeakRef.m in Sources */,
 			);

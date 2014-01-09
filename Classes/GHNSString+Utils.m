@@ -29,14 +29,6 @@
 #import "GHNSString+Utils.h"
 #import <CommonCrypto/CommonDigest.h>
 
-//! @cond DEV
-
-@protocol GHKit_NSString_GTMRegex
-- (NSString *)gtm_stringByReplacingMatchesOfPattern:(NSString *)pattern withReplacement:(NSString *)replacementPattern;
-@end
-
-//! @endcond
-
 @implementation NSString(GHUtils)
 
 + (id)gh_stringWithFormat:(NSString *)format arguments:(NSArray *)arguments {
@@ -47,21 +39,25 @@
   return result;
 }
 
+- (NSString *)gh_stringByReplacingMatchesOfPattern:(NSString *)pattern withReplacement:(NSString *)replacement {
+  NSError *error = nil;
+  NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:&error];
+  if (error) {
+    return self;
+  }
+  return [expression stringByReplacingMatchesInString:self options:0 range:NSMakeRange(0, [self length]) withTemplate:[NSRegularExpression escapedTemplateForString:replacement]];
+}
+
 - (NSString *)gh_strip {
   return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
 - (NSString *)gh_rightStrip {
-  if (![self respondsToSelector:@selector(gtm_stringByReplacingMatchesOfPattern:withReplacement:)])
-    [NSException raise:NSDestinationInvalidException format:@"This method required GTMRegexAdditions from GTMRegex."];
-  return [(id)self gtm_stringByReplacingMatchesOfPattern:@"[ \t]+$" withReplacement:@""];
+  return [self gh_stringByReplacingMatchesOfPattern:@"[ \t]+$" withReplacement:@""];
 }
 
 - (NSString *)gh_leftStrip {
-  if (![self respondsToSelector:@selector(gtm_stringByReplacingMatchesOfPattern:withReplacement:)])
-    [NSException raise:NSDestinationInvalidException format:@"This method required GTMRegexAdditions from GTMRegex."];
-
-	return [(id)self gtm_stringByReplacingMatchesOfPattern:@"^[ \t]+" withReplacement:@""];
+	return [self gh_stringByReplacingMatchesOfPattern:@"^[ \t]+" withReplacement:@""];
 }
 
 - (BOOL)gh_isBlank {
