@@ -52,7 +52,7 @@ typedef NSUInteger GHNSStringAlignment;
  @param lineBreakMode Line break mode
  @param alignment Alignment
  */
-- (void)gh_drawInRect:(CGRect)rect font:(UIFont *)font lineBreakMode:(UILineBreakMode)lineBreakMode 
+- (void)gh_drawInRect:(CGRect)rect font:(UIFont *)font lineBreakMode:(NSLineBreakMode)lineBreakMode
             alignment:(GHNSStringAlignment)alignment;
 
 /*!
@@ -67,6 +67,6 @@ typedef NSUInteger GHNSStringAlignment;
  @param alignment Alignment
  */
 - (void)gh_drawInRect:(CGRect)rect font:(UIFont *)font minFontSize:(CGFloat)minFontSize actualFontSize:(CGFloat *)actualFontSize 
-        lineBreakMode:(UILineBreakMode)lineBreakMode alignment:(GHNSStringAlignment)alignment;
+        lineBreakMode:(NSLineBreakMode)lineBreakMode alignment:(GHNSStringAlignment)alignment;
 
 @end

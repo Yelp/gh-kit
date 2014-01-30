@@ -31,7 +31,7 @@
 
 @implementation NSString(GHUIKitUtils)
 
-- (void)gh_drawInRect:(CGRect)rect font:(UIFont *)font lineBreakMode:(UILineBreakMode)lineBreakMode alignment:(GHNSStringAlignment)alignment {
+- (void)gh_drawInRect:(CGRect)rect font:(UIFont *)font lineBreakMode:(NSLineBreakMode)lineBreakMode alignment:(GHNSStringAlignment)alignment {
 	
 	CGSize size = [self sizeWithFont:font forWidth:rect.size.width lineBreakMode:lineBreakMode];
 	
@@ -52,7 +52,7 @@
 }
 
 - (void)gh_drawInRect:(CGRect)rect font:(UIFont *)font minFontSize:(CGFloat)minFontSize actualFontSize:(CGFloat *)actualFontSize 
-        lineBreakMode:(UILineBreakMode)lineBreakMode alignment:(GHNSStringAlignment)alignment {
+        lineBreakMode:(NSLineBreakMode)lineBreakMode alignment:(GHNSStringAlignment)alignment {
 	
   if (!actualFontSize) {
     CGFloat fontSize;
