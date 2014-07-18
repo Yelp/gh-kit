@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
 
   s.source_files = "Classes/**/*.{h,m}"
   s.ios.exclude_files = "Classes/MacOSX/*"
-  s.osx.exclude_files = "Classes/MacOSX/*"
+  s.osx.exclude_files = "Classes/iOS/*"
 end
