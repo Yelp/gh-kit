@@ -152,16 +152,6 @@
 		00D02383154DF44F003BAAC3 /* GHNSString+UIKitUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022BC154DF1C5003BAAC3 /* GHNSString+UIKitUtils.m */; };
 		00D02384154DF456003BAAC3 /* GHUIColor+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 00D022BD154DF1C5003BAAC3 /* GHUIColor+Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		00D02385154DF45A003BAAC3 /* GHUIColor+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022BE154DF1C5003BAAC3 /* GHUIColor+Utils.m */; };
-		00D02386154DF45D003BAAC3 /* GHNSAttributedString+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 00D022C0154DF1C5003BAAC3 /* GHNSAttributedString+Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		00D02387154DF460003BAAC3 /* GHNSAttributedString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022C1154DF1C5003BAAC3 /* GHNSAttributedString+Utils.m */; };
-		00D02388154DF464003BAAC3 /* GHNSString+SymlinksAndAliases.h in Headers */ = {isa = PBXBuildFile; fileRef = 00D022C2154DF1C5003BAAC3 /* GHNSString+SymlinksAndAliases.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		00D02389154DF467003BAAC3 /* GHNSString+SymlinksAndAliases.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022C3154DF1C5003BAAC3 /* GHNSString+SymlinksAndAliases.m */; };
-		00D0238A154DF46A003BAAC3 /* GHNSXMLElement+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 00D022C4154DF1C5003BAAC3 /* GHNSXMLElement+Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		00D0238B154DF46D003BAAC3 /* GHNSXMLElement+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022C5154DF1C5003BAAC3 /* GHNSXMLElement+Utils.m */; };
-		00D0238C154DF46F003BAAC3 /* GHNSXMLNode+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 00D022C6154DF1C5003BAAC3 /* GHNSXMLNode+Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		00D0238D154DF473003BAAC3 /* GHNSXMLNode+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022C7154DF1C5003BAAC3 /* GHNSXMLNode+Utils.m */; };
-		00D0238E154DF475003BAAC3 /* GHViewAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 00D022C8154DF1C5003BAAC3 /* GHViewAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		00D0238F154DF479003BAAC3 /* GHViewAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022C9154DF1C5003BAAC3 /* GHViewAnimation.m */; };
 		00D02397154DF67D003BAAC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D02396154DF67D003BAAC3 /* UIKit.framework */; };
 		00D02398154DF67D003BAAC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D022D7154DF1EB003BAAC3 /* Foundation.framework */; };
 		00D0239A154DF67D003BAAC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D02399154DF67D003BAAC3 /* CoreGraphics.framework */; };
@@ -255,11 +245,6 @@
 		00D0244C154DFCC3003BAAC3 /* GHReversableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022B5154DF1C5003BAAC3 /* GHReversableDictionary.m */; };
 		00D0244D154DFCC7003BAAC3 /* GHValidators.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022B7154DF1C5003BAAC3 /* GHValidators.m */; };
 		00D0244E154DFCCB003BAAC3 /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 00D022B8154DF1C5003BAAC3 /* hmac.c */; };
-		00D0244F154DFCCF003BAAC3 /* GHNSAttributedString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022C1154DF1C5003BAAC3 /* GHNSAttributedString+Utils.m */; };
-		00D02450154DFCD2003BAAC3 /* GHNSString+SymlinksAndAliases.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022C3154DF1C5003BAAC3 /* GHNSString+SymlinksAndAliases.m */; };
-		00D02451154DFCD4003BAAC3 /* GHNSXMLElement+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022C5154DF1C5003BAAC3 /* GHNSXMLElement+Utils.m */; };
-		00D02452154DFCD6003BAAC3 /* GHNSXMLNode+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022C7154DF1C5003BAAC3 /* GHNSXMLNode+Utils.m */; };
-		00D02453154DFCD9003BAAC3 /* GHViewAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022C9154DF1C5003BAAC3 /* GHViewAnimation.m */; };
 		00D02454154DFCDC003BAAC3 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 00D022CA154DF1C5003BAAC3 /* sha1.c */; };
 		00D02455154DFCDF003BAAC3 /* GHNSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022CE154DF1C5003BAAC3 /* GHNSObject+Swizzle.m */; };
 		00D02457154DFD36003BAAC3 /* GHNSAttributedStringTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D02456154DFD36003BAAC3 /* GHNSAttributedStringTest.m */; };
@@ -373,16 +358,6 @@
 		00D022BC154DF1C5003BAAC3 /* GHNSString+UIKitUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GHNSString+UIKitUtils.m"; sourceTree = "<group>"; };
 		00D022BD154DF1C5003BAAC3 /* GHUIColor+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHUIColor+Utils.h"; sourceTree = "<group>"; };
 		00D022BE154DF1C5003BAAC3 /* GHUIColor+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GHUIColor+Utils.m"; sourceTree = "<group>"; };
-		00D022C0154DF1C5003BAAC3 /* GHNSAttributedString+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHNSAttributedString+Utils.h"; sourceTree = "<group>"; };
-		00D022C1154DF1C5003BAAC3 /* GHNSAttributedString+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GHNSAttributedString+Utils.m"; sourceTree = "<group>"; };
-		00D022C2154DF1C5003BAAC3 /* GHNSString+SymlinksAndAliases.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHNSString+SymlinksAndAliases.h"; sourceTree = "<group>"; };
-		00D022C3154DF1C5003BAAC3 /* GHNSString+SymlinksAndAliases.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GHNSString+SymlinksAndAliases.m"; sourceTree = "<group>"; };
-		00D022C4154DF1C5003BAAC3 /* GHNSXMLElement+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHNSXMLElement+Utils.h"; sourceTree = "<group>"; };
-		00D022C5154DF1C5003BAAC3 /* GHNSXMLElement+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GHNSXMLElement+Utils.m"; sourceTree = "<group>"; };
-		00D022C6154DF1C5003BAAC3 /* GHNSXMLNode+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHNSXMLNode+Utils.h"; sourceTree = "<group>"; };
-		00D022C7154DF1C5003BAAC3 /* GHNSXMLNode+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GHNSXMLNode+Utils.m"; sourceTree = "<group>"; };
-		00D022C8154DF1C5003BAAC3 /* GHViewAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHViewAnimation.h; sourceTree = "<group>"; };
-		00D022C9154DF1C5003BAAC3 /* GHViewAnimation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHViewAnimation.m; sourceTree = "<group>"; };
 		00D022CA154DF1C5003BAAC3 /* sha1.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
 		00D022CB154DF1C5003BAAC3 /* sha1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
 		00D022CD154DF1C5003BAAC3 /* GHNSObject+Swizzle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHNSObject+Swizzle.h"; sourceTree = "<group>"; };
@@ -567,7 +542,6 @@
 				00D022B8154DF1C5003BAAC3 /* hmac.c */,
 				00D022B9154DF1C5003BAAC3 /* hmac.h */,
 				00D022BA154DF1C5003BAAC3 /* iOS */,
-				00D022BF154DF1C5003BAAC3 /* MacOSX */,
 				00D022CA154DF1C5003BAAC3 /* sha1.c */,
 				00D022CB154DF1C5003BAAC3 /* sha1.h */,
 				00D022CC154DF1C5003BAAC3 /* Swizzle */,
@@ -586,23 +560,6 @@
 				00D022BE154DF1C5003BAAC3 /* GHUIColor+Utils.m */,
 			);
 			path = iOS;
-			sourceTree = "<group>";
-		};
-		00D022BF154DF1C5003BAAC3 /* MacOSX */ = {
-			isa = PBXGroup;
-			children = (
-				00D022C0154DF1C5003BAAC3 /* GHNSAttributedString+Utils.h */,
-				00D022C1154DF1C5003BAAC3 /* GHNSAttributedString+Utils.m */,
-				00D022C2154DF1C5003BAAC3 /* GHNSString+SymlinksAndAliases.h */,
-				00D022C3154DF1C5003BAAC3 /* GHNSString+SymlinksAndAliases.m */,
-				00D022C4154DF1C5003BAAC3 /* GHNSXMLElement+Utils.h */,
-				00D022C5154DF1C5003BAAC3 /* GHNSXMLElement+Utils.m */,
-				00D022C6154DF1C5003BAAC3 /* GHNSXMLNode+Utils.h */,
-				00D022C7154DF1C5003BAAC3 /* GHNSXMLNode+Utils.m */,
-				00D022C8154DF1C5003BAAC3 /* GHViewAnimation.h */,
-				00D022C9154DF1C5003BAAC3 /* GHViewAnimation.m */,
-			);
-			path = MacOSX;
 			sourceTree = "<group>";
 		};
 		00D022CC154DF1C5003BAAC3 /* Swizzle */ = {
@@ -818,11 +775,6 @@
 				00D02379154DF427003BAAC3 /* hmac.h in Headers */,
 				00D0237D154DF434003BAAC3 /* sha1.h in Headers */,
 				00D0237F154DF43B003BAAC3 /* GHNSObject+Swizzle.h in Headers */,
-				00D02386154DF45D003BAAC3 /* GHNSAttributedString+Utils.h in Headers */,
-				00D02388154DF464003BAAC3 /* GHNSString+SymlinksAndAliases.h in Headers */,
-				00D0238A154DF46A003BAAC3 /* GHNSXMLElement+Utils.h in Headers */,
-				00D0238C154DF46F003BAAC3 /* GHNSXMLNode+Utils.h in Headers */,
-				00D0238E154DF475003BAAC3 /* GHViewAnimation.h in Headers */,
 				006BD88B15AE2FF500D493AE /* ydefines.h in Headers */,
 				0084E6891601103D0036580E /* GH_MAZeroingWeakRef.h in Headers */,
 				0084E68D1601103D0036580E /* GH_MAZeroingWeakRefNativeZWRNotAllowedTable.h in Headers */,
@@ -1033,11 +985,6 @@
 				00D02377154DF424003BAAC3 /* hmac.c in Sources */,
 				00D0237B154DF431003BAAC3 /* sha1.c in Sources */,
 				00D02381154DF441003BAAC3 /* GHNSObject+Swizzle.m in Sources */,
-				00D02387154DF460003BAAC3 /* GHNSAttributedString+Utils.m in Sources */,
-				00D02389154DF467003BAAC3 /* GHNSString+SymlinksAndAliases.m in Sources */,
-				00D0238B154DF46D003BAAC3 /* GHNSXMLElement+Utils.m in Sources */,
-				00D0238D154DF473003BAAC3 /* GHNSXMLNode+Utils.m in Sources */,
-				00D0238F154DF479003BAAC3 /* GHViewAnimation.m in Sources */,
 				0084E68B1601103D0036580E /* GH_MAZeroingWeakRef.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1139,11 +1086,6 @@
 				00D0244C154DFCC3003BAAC3 /* GHReversableDictionary.m in Sources */,
 				00D0244D154DFCC7003BAAC3 /* GHValidators.m in Sources */,
 				00D0244E154DFCCB003BAAC3 /* hmac.c in Sources */,
-				00D0244F154DFCCF003BAAC3 /* GHNSAttributedString+Utils.m in Sources */,
-				00D02450154DFCD2003BAAC3 /* GHNSString+SymlinksAndAliases.m in Sources */,
-				00D02451154DFCD4003BAAC3 /* GHNSXMLElement+Utils.m in Sources */,
-				00D02452154DFCD6003BAAC3 /* GHNSXMLNode+Utils.m in Sources */,
-				00D02453154DFCD9003BAAC3 /* GHViewAnimation.m in Sources */,
 				00D02454154DFCDC003BAAC3 /* sha1.c in Sources */,
 				00D02455154DFCDF003BAAC3 /* GHNSObject+Swizzle.m in Sources */,
 				00D02457154DFD36003BAAC3 /* GHNSAttributedStringTest.m in Sources */,
