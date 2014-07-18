@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/Yelp/gh-kit', :tag => 'v#{s.version}' }  
   s.ios.deployment_target = "6.0"
   s.osx.deployment_target = "10.7"
+  s.header_dir   = "GHKit"
 
   s.source_files = "Classes/**/*.{h,m}"
   s.ios.exclude_files = "Classes/MacOSX/*"
