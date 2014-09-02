@@ -79,6 +79,13 @@
 	GHAssertEqualStrings([derivedURL description], @"https://user:pass@api.yelp.com:400/path?key3=value3&key4=value4#myfrag", nil);	
 }
 
+- (void)testDeriveWithQueryUnicodeURL {
+  NSString *URLString = @"http://api.yelp.com/events/%E6%B8%AF%E5%8C%BA-%E3%81%8B%E3%81%8D%E6%B0%B7%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3-copen-local-base-roppongi";
+  NSURL *URL = [NSURL URLWithString:URLString];
+  NSURL *derivedURL = [URL gh_deriveWithQuery:nil];
+  GHAssertEqualStrings(URLString, [derivedURL description], nil);
+}
+
 - (void)testCanonical {
 	NSURL *URL = [NSURL URLWithString:@"https://user:pass@api.yelp.com:400/path?b=c&a=d#myfrag"];
 	NSURL *canonical = [URL gh_canonical];

@@ -111,7 +111,7 @@
 	if ([self fragment]) {
     [URLString appendFormat:@"#%@", [self fragment]];
   }
-	return [NSURL URLWithString:URLString];
+	return [NSURL URLWithString:[NSURL gh_encode:URLString]];
 }
 
 - (NSURL *)gh_canonical {
