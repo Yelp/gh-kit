@@ -86,6 +86,12 @@
   GHAssertEqualStrings(URLString, [derivedURL description], nil);
 }
 
+- (void)testDeriveWithQueryRedirectToEscapedURL {
+  NSURL *URL = [NSURL URLWithString:@"http://www.yelp.com/redir"];
+  NSURL *derivedURL = [URL gh_deriveWithQuery:@"url=http%3A%2F%2Fwww.google.com"];
+  GHAssertEqualStrings([derivedURL description], @"http://www.yelp.com/redir?url=http%3A%2F%2Fwww.google.com", nil);
+}
+
 - (void)testCanonical {
 	NSURL *URL = [NSURL URLWithString:@"https://user:pass@api.yelp.com:400/path?b=c&a=d#myfrag"];
 	NSURL *canonical = [URL gh_canonical];
