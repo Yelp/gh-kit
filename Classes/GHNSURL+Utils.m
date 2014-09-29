@@ -103,7 +103,7 @@
     [URLString appendFormat:@":%d", [[self port] integerValue]];
   }
   if ([self path]) {
-    [URLString appendString:[self path]];
+    [URLString appendString:[[self path] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
   }
 	if (query) {
     [URLString appendFormat:@"?%@", query];
@@ -111,7 +111,7 @@
 	if ([self fragment]) {
     [URLString appendFormat:@"#%@", [self fragment]];
   }
-	return [NSURL URLWithString:[NSURL gh_encode:URLString]];
+	return [NSURL URLWithString:URLString];
 }
 
 - (NSURL *)gh_canonical {
