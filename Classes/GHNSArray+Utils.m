@@ -50,7 +50,7 @@
 
 - (id)gh_randomObject:(unsigned int)seed {
 	if ([self count] == 0) return nil;
-	srand(seed == 0 ? time(0) : seed);
+	srand(seed == 0 ? (unsigned int)time(0) : seed);
 	int index = arc4random() % [self count];
 	return [self objectAtIndex:index];
 }
