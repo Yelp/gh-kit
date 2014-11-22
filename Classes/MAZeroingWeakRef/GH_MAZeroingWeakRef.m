@@ -77,6 +77,16 @@
 @end
 #endif
 
+// Added to supress compiler warnings about missing selectors
+@interface NSObject ()
+- (void)GH_MAZeroingWeakRef_KVO_original_release;
+- (void)GH_MAZeroingWeakRef_KVO_original_dealloc;
+- (void)GH_MAZeroingWeakRef_KVO_original_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(void *)context;
+- (void)GH_MAZeroingWeakRef_KVO_original_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(void *)context;
+- (void)GH_MAZeroingWeakRef_KVO_original_removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath;
+
+@end
+
 
 static void EnsureCustomSubclass(id obj);
 

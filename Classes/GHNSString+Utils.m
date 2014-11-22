@@ -287,14 +287,6 @@ static NSDictionary *gh_gTruncateMiddle = nil;
           result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15]];
 }
 
-- (NSString *)gh_MD5WithEncoder:(id)encoder {
-  return [self gh_MD5Base64];
-}
-
-- (NSString *)gh_MD5Base64 {
-  return [[[self gh_MD5] dataUsingEncoding:NSUTF8StringEncoding] base64Encoding];
-}
-
 @end
 
 @implementation GHNSStringSegment
