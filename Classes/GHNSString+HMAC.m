@@ -36,7 +36,7 @@
   CCHmac(kCCHmacAlgSHA1, [secretData bytes], [secretData length], [clearTextData bytes], [clearTextData length], cHMAC);
 
   NSData *data = [[NSData alloc] initWithBytes:cHMAC length:sizeof(cHMAC)];
-  NSString *base64EncodedString = [data base64Encoding];
+  NSString *base64EncodedString = [data base64EncodedStringWithOptions:0];
   [data release];
   return base64EncodedString;
 

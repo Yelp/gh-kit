@@ -67,6 +67,9 @@
 
 #import "GHNSInvocationProxy.h"
 
+@interface GHNSInvocationProxyCallback ()
+- (void)invoke:(NSInvocation *)invocation; // Added here to supress a compiler warning
+@end
 
 @interface GHNSInvocationProxy ()
 @property (retain, nonatomic) NSInvocation *invocation;
