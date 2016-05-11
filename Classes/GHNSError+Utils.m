@@ -32,12 +32,12 @@
 
 @implementation NSError(GHUtils)
 
-+ (NSError *)gh_errorWithDomain:(NSString *)domain code:(NSInteger)code localizedDescription:(NSString *)localizedDescription {
++ (instancetype)gh_errorWithDomain:(NSString *)domain code:(NSInteger)code localizedDescription:(NSString *)localizedDescription {
 	NSDictionary *userInfo = [NSDictionary dictionaryWithObject:localizedDescription forKey:NSLocalizedDescriptionKey];
 	return [self errorWithDomain:domain code:code userInfo:userInfo];
 }
 
-+ (NSError *)gh_errorFromException:(NSException *)exception {
++ (instancetype)gh_errorFromException:(NSException *)exception {
 	NSDictionary *userInfo = [NSDictionary dictionaryWithObject:exception.reason forKey:NSLocalizedDescriptionKey];
 	return [self errorWithDomain:exception.name code:-1 userInfo:userInfo];
 }
