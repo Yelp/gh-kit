@@ -40,14 +40,14 @@
  @param localizedDescription Localized description
  @result NSError
  */
-+ (NSError *)gh_errorWithDomain:(NSString *)domain code:(NSInteger)code localizedDescription:(NSString *)localizedDescription;
++ (instancetype)gh_errorWithDomain:(NSString *)domain code:(NSInteger)code localizedDescription:(NSString *)localizedDescription;
 
 /*!
  Create error from exception.
  
  @param exception Exception
  */
-+ (NSError *)gh_errorFromException:(NSException *)exception;
++ (instancetype)gh_errorFromException:(NSException *)exception;
 
 /*!
  Get full error description, recusively for any errors within the userInfo.

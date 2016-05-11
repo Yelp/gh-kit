@@ -148,8 +148,6 @@
 		00D0237F154DF43B003BAAC3 /* GHNSObject+Swizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 00D022CD154DF1C5003BAAC3 /* GHNSObject+Swizzle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		00D02380154DF440003BAAC3 /* GHNSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022CE154DF1C5003BAAC3 /* GHNSObject+Swizzle.m */; };
 		00D02381154DF441003BAAC3 /* GHNSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022CE154DF1C5003BAAC3 /* GHNSObject+Swizzle.m */; };
-		00D02382154DF44D003BAAC3 /* GHNSString+UIKitUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 00D022BB154DF1C5003BAAC3 /* GHNSString+UIKitUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		00D02383154DF44F003BAAC3 /* GHNSString+UIKitUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022BC154DF1C5003BAAC3 /* GHNSString+UIKitUtils.m */; };
 		00D02384154DF456003BAAC3 /* GHUIColor+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 00D022BD154DF1C5003BAAC3 /* GHUIColor+Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		00D02385154DF45A003BAAC3 /* GHUIColor+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022BE154DF1C5003BAAC3 /* GHUIColor+Utils.m */; };
 		00D02397154DF67D003BAAC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D02396154DF67D003BAAC3 /* UIKit.framework */; };
@@ -206,7 +204,6 @@
 		00D023F8154DF8F1003BAAC3 /* GHReversableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022B5154DF1C5003BAAC3 /* GHReversableDictionary.m */; };
 		00D023F9154DF8F3003BAAC3 /* GHValidators.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022B7154DF1C5003BAAC3 /* GHValidators.m */; };
 		00D023FA154DF8F7003BAAC3 /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 00D022B8154DF1C5003BAAC3 /* hmac.c */; };
-		00D023FB154DF8FC003BAAC3 /* GHNSString+UIKitUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022BC154DF1C5003BAAC3 /* GHNSString+UIKitUtils.m */; };
 		00D023FC154DF8FE003BAAC3 /* GHUIColor+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022BE154DF1C5003BAAC3 /* GHUIColor+Utils.m */; };
 		00D023FD154DF902003BAAC3 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 00D022CA154DF1C5003BAAC3 /* sha1.c */; };
 		00D023FE154DF905003BAAC3 /* GHNSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022CE154DF1C5003BAAC3 /* GHNSObject+Swizzle.m */; };
@@ -354,8 +351,6 @@
 		00D022B7154DF1C5003BAAC3 /* GHValidators.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHValidators.m; sourceTree = "<group>"; };
 		00D022B8154DF1C5003BAAC3 /* hmac.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
 		00D022B9154DF1C5003BAAC3 /* hmac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
-		00D022BB154DF1C5003BAAC3 /* GHNSString+UIKitUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHNSString+UIKitUtils.h"; sourceTree = "<group>"; };
-		00D022BC154DF1C5003BAAC3 /* GHNSString+UIKitUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GHNSString+UIKitUtils.m"; sourceTree = "<group>"; };
 		00D022BD154DF1C5003BAAC3 /* GHUIColor+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHUIColor+Utils.h"; sourceTree = "<group>"; };
 		00D022BE154DF1C5003BAAC3 /* GHUIColor+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GHUIColor+Utils.m"; sourceTree = "<group>"; };
 		00D022CA154DF1C5003BAAC3 /* sha1.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
@@ -554,8 +549,6 @@
 		00D022BA154DF1C5003BAAC3 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				00D022BB154DF1C5003BAAC3 /* GHNSString+UIKitUtils.h */,
-				00D022BC154DF1C5003BAAC3 /* GHNSString+UIKitUtils.m */,
 				00D022BD154DF1C5003BAAC3 /* GHUIColor+Utils.h */,
 				00D022BE154DF1C5003BAAC3 /* GHUIColor+Utils.m */,
 			);
@@ -729,7 +722,6 @@
 				00D02378154DF426003BAAC3 /* hmac.h in Headers */,
 				00D0237C154DF434003BAAC3 /* sha1.h in Headers */,
 				00D0237E154DF43B003BAAC3 /* GHNSObject+Swizzle.h in Headers */,
-				00D02382154DF44D003BAAC3 /* GHNSString+UIKitUtils.h in Headers */,
 				00D02384154DF456003BAAC3 /* GHUIColor+Utils.h in Headers */,
 				007DA66A154E055C008574F9 /* GHKit-Prefix.pch in Headers */,
 				006BD88A15AE2FF500D493AE /* ydefines.h in Headers */,
@@ -945,7 +937,6 @@
 				00D02376154DF423003BAAC3 /* hmac.c in Sources */,
 				00D0237A154DF431003BAAC3 /* sha1.c in Sources */,
 				00D02380154DF440003BAAC3 /* GHNSObject+Swizzle.m in Sources */,
-				00D02383154DF44F003BAAC3 /* GHNSString+UIKitUtils.m in Sources */,
 				00D02385154DF45A003BAAC3 /* GHUIColor+Utils.m in Sources */,
 				0084E68A1601103D0036580E /* GH_MAZeroingWeakRef.m in Sources */,
 			);
@@ -1044,7 +1035,6 @@
 				00D023F8154DF8F1003BAAC3 /* GHReversableDictionary.m in Sources */,
 				00D023F9154DF8F3003BAAC3 /* GHValidators.m in Sources */,
 				00D023FA154DF8F7003BAAC3 /* hmac.c in Sources */,
-				00D023FB154DF8FC003BAAC3 /* GHNSString+UIKitUtils.m in Sources */,
 				00D023FC154DF8FE003BAAC3 /* GHUIColor+Utils.m in Sources */,
 				00D023FD154DF902003BAAC3 /* sha1.c in Sources */,
 				00D023FE154DF905003BAAC3 /* GHNSObject+Swizzle.m in Sources */,
