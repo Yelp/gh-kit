@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
   s.requires_arc = false
 
   s.source_files = "Classes/**/*.{h,m}"
-  s.private_header_files = "Classes/MAZeroingWeakRef/*"
+  s.private_header_files = "Classes/MAZeroingWeakRef/*.h"
 end
