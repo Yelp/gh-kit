@@ -118,13 +118,13 @@
 // http://wiki.services.openoffice.org/wiki/Localized_AutoCorrection_of_Ordinal_Numbers_(1st_2nd)#French
 + (NSString *)gh_ordinalize:(NSInteger)value masculine:(BOOL)masculine {
   NSString *languageCode = [[NSLocale preferredLanguages] gh_firstObject];
-  if ([languageCode isEqual:@"en"]) {
+  if ([languageCode hasPrefix:@"en"]) {
     return [NSNumber gh_ordinalizeEn:value];
-  } else if ([languageCode isEqual:@"fr"]) {
+  } else if ([languageCode hasPrefix:@"fr"]) {
     return [NSNumber gh_ordinalizeFr:value masculine:masculine];
-  } else if ([languageCode isEqual:@"de"]) {
+  } else if ([languageCode hasPrefix:@"de"]) {
     return [NSNumber gh_ordinalizeDe:value masculine:masculine];
-  } else if ([languageCode isEqual:@"es"]) {
+  } else if ([languageCode hasPrefix:@"es"]) {
     return [NSNumber gh_ordinalizeEs:value masculine:masculine];
   }
   return [NSString stringWithFormat:@"%ld", (long)value];
