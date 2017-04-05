@@ -26,6 +26,8 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
+NS_ASSUME_NONNULL_BEGIN
+
 // Common date format constant: 'Dec 12, 2008 4:34 PM'
 extern NSString *const kDateFormatShortMonthFullYearTime;
 
@@ -47,28 +49,28 @@ extern NSString *const kDateFormatShortMonthFullYearTime;
  @param days +/- N days
  @result Date with days added or subtracted
  */
-- (NSDate *)gh_addDays:(NSInteger)days;
+- (nullable NSDate *)gh_addDays:(NSInteger)days;
 
 /*!
  Get normalized date (hours/minutes/seconds) set to 0; Begining of day.
 
  @result Beginning day of current date 
  */
-- (NSDate *)gh_beginningOfDay;
+- (nullable NSDate *)gh_beginningOfDay;
 
 /*!
  Yesterday (beginning of day).
 
  @result Previous day (beginning)
  */
-+ (NSDate *)gh_yesterday;
++ (nullable NSDate *)gh_yesterday;
 
 /*!
  Tomorrow (beginning of day).
 
  @result Next day (beginning)
  */
-+ (NSDate *)gh_tomorrow;
++ (nullable NSDate *)gh_tomorrow;
 
 /*!
  Check if date is tomorrow.
@@ -97,7 +99,7 @@ extern NSString *const kDateFormatShortMonthFullYearTime;
  @param formatter Date formatter, if nil will return nil if not yesterday, today or tomorrow
  @result 'Yesterday', 'Today' and 'Tomorrow' or weekday symbol for specified formatter 
  */
-- (NSString *)gh_weekday:(NSDateFormatter *)formatter;
+- (nullable NSString *)gh_weekday:(nullable NSDateFormatter *)formatter;
 
 /*!
  Format date.
@@ -105,7 +107,7 @@ extern NSString *const kDateFormatShortMonthFullYearTime;
  @param format Format
  @param useWeekday If YES, will prepend weekday (or 'Today', 'Tomorrow', 'Yesterday')
  */
-- (NSString *)gh_format:(NSString *)format useWeekday:(BOOL)useWeekday;
+- (nullable NSString *)gh_format:(nullable NSString *)format useWeekday:(BOOL)useWeekday;
 
 /*!
  Create date from date and add days and/or normalize.
@@ -114,7 +116,7 @@ extern NSString *const kDateFormatShortMonthFullYearTime;
  @param addDay If not 0, will add these number of days to the date.
  @param normalize If YES will set hours, minutes, seconds to 0
  */
-+ (NSDate *)gh_dateFromDate:(NSDate *)date addDay:(NSInteger)addDay normalize:(BOOL)normalize;
++ (nullable NSDate *)gh_dateFromDate:(nullable NSDate *)date addDay:(NSInteger)addDay normalize:(BOOL)normalize;
 
 /*!
  Create date with day, month, year, and add days, months or years.
@@ -134,9 +136,9 @@ extern NSString *const kDateFormatShortMonthFullYearTime;
  @param timeZone Time zone to use
  @result Date
  */
-+ (NSDate *)gh_dateWithDay:(NSInteger)day month:(NSInteger)month year:(NSInteger)year 
-                    addDay:(NSInteger)addDay addMonth:(NSInteger)addMonth addYear:(NSInteger)addYear 
-                  timeZone:(NSTimeZone *)timeZone;
++ (nullable NSDate *)gh_dateWithDay:(NSInteger)day month:(NSInteger)month year:(NSInteger)year
+                             addDay:(NSInteger)addDay addMonth:(NSInteger)addMonth addYear:(NSInteger)addYear
+                           timeZone:(nullable NSTimeZone *)timeZone;
 
 /*!
  Create date with day, month, year.
@@ -154,8 +156,8 @@ extern NSString *const kDateFormatShortMonthFullYearTime;
  @param timeZone Time zone
  @result Date
  */
-+ (NSDate *)gh_dateWithDay:(NSInteger)day month:(NSInteger)month year:(NSInteger)year
-                  timeZone:(NSTimeZone *)timeZone;
++ (nullable NSDate *)gh_dateWithDay:(NSInteger)day month:(NSInteger)month year:(NSInteger)year
+                           timeZone:(nullable NSTimeZone *)timeZone;
 
 /*!
  Date components for date.
@@ -164,12 +166,12 @@ extern NSString *const kDateFormatShortMonthFullYearTime;
  @param timeZone Time zone
  @result Date components
  */
-- (NSDateComponents *)gh_dateComponentsFromFlags:(NSUInteger)flags timeZone:(NSTimeZone *)timeZone;
+- (nullable NSDateComponents *)gh_dateComponentsFromFlags:(NSUInteger)flags timeZone:(nullable NSTimeZone *)timeZone;
 
 /*!
  Month symbols, same as standaloneMonthSymbols from NSDateFormatter.
  */
-+ (NSArray *)gh_monthSymbols;
++ (nullable NSArray *)gh_monthSymbols;
 
 /*!
  Day of date.
@@ -184,7 +186,7 @@ extern NSString *const kDateFormatShortMonthFullYearTime;
  @param timeZone Time zone
  @result Day
  */
-- (NSInteger)gh_dayForTimeZone:(NSTimeZone *)timeZone;
+- (NSInteger)gh_dayForTimeZone:(nullable NSTimeZone *)timeZone;
 
 /*!
  Month of date.
@@ -199,7 +201,7 @@ extern NSString *const kDateFormatShortMonthFullYearTime;
  @param timeZone Time zone
  @result Month
  */
-- (NSInteger)gh_monthForTimeZone:(NSTimeZone *)timeZone;
+- (NSInteger)gh_monthForTimeZone:(nullable NSTimeZone *)timeZone;
 
 /*!
  Year of date.
@@ -212,7 +214,7 @@ extern NSString *const kDateFormatShortMonthFullYearTime;
  @param timeZone Time zone
  @result Year
  */
-- (NSInteger)gh_yearForTimeZone:(NSTimeZone *)timeZone;
+- (NSInteger)gh_yearForTimeZone:(nullable NSTimeZone *)timeZone;
 
 
 /*!
@@ -239,9 +241,9 @@ extern NSString *const kDateFormatShortMonthFullYearTime;
  @param includeSeconds If YES, will include seconds (30 seconds ago), otherwise will say something like 'Less than a minute'
  @result Time ago in words
  */
-- (NSString *)gh_timeAgo:(BOOL)includeSeconds;
+- (nullable NSString *)gh_timeAgo:(BOOL)includeSeconds;
 
-- (NSString *)gh_timeAgo:(BOOL)includeSeconds capitalize:(BOOL)capitalize;
+- (nullable NSString *)gh_timeAgo:(BOOL)includeSeconds capitalize:(BOOL)capitalize;
 
 /*!
  Time ago in abbreviated format.
@@ -258,7 +260,7 @@ extern NSString *const kDateFormatShortMonthFullYearTime;
 
  @result Time ago in abbreviated format
  */
-- (NSString *)gh_timeAgoAbbreviated;
+- (nullable NSString *)gh_timeAgoAbbreviated;
 
 /*!
  Milliseconds since 1970.
@@ -272,7 +274,7 @@ extern NSString *const kDateFormatShortMonthFullYearTime;
  
  @result Milliseconds since 1970 GMT
  */
-- (NSNumber *)gh_millisNumberSince1970;
+- (nullable NSNumber *)gh_millisNumberSince1970;
 
 /*!
  Seconds since 1970.
@@ -286,6 +288,8 @@ extern NSString *const kDateFormatShortMonthFullYearTime;
 
  @result Seconds since 1970 GMT (rounded)
  */
-- (NSNumber *)gh_secondsNumberSince1970;
+- (nullable NSNumber *)gh_secondsNumberSince1970;
+
+NS_ASSUME_NONNULL_END
 
 @end
