@@ -204,4 +204,11 @@ NSUInteger const kUnitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayC
 	return [NSNumber numberWithLongLong:seconds];
 }
 
+- (BOOL)gh_isWithinDaysBefore:(NSInteger)daysBefore andDaysAfter:(NSInteger)daysAfter of:(NSDate *)reference {
+  NSDate *from = [reference gh_addDays:-daysBefore];
+  NSDate *to = [reference gh_addDays:daysAfter];
+
+  return ([from compare:self] == NSOrderedAscending) && ([self compare:to] == NSOrderedAscending);
+}
+
 @end

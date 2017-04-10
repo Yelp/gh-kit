@@ -288,4 +288,11 @@ extern NSString *const kDateFormatShortMonthFullYearTime;
  */
 - (NSNumber *)gh_secondsNumberSince1970;
 
+/*!
+ Check if date is within x days before and y days after another date
+
+ @result Seconds since 1970 GMT (rounded)
+ */
+- (BOOL)gh_isWithinDaysBefore:(NSInteger)daysBefore andDaysAfter:(NSInteger)daysAfter of:(NSDate *)reference;
+
 @end
