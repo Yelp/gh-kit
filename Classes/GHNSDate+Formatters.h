@@ -79,16 +79,6 @@
 + (NSDate *)gh_parseTimeSinceEpoch:(id)timeSinceEpoch withDefault:(id)withDefault;
 
 /*!
- Parse time since epoch (1970) in seconds.
-
- @param timeSinceEpoch Seconds since Jan 1970 (epoch); An NSNumber or NSString (responds to doubleValue)
- @param withDefault If timeSinceEpoch is nil, returns this value
- @param timeZone If set, the returned Date will be offset from the supplied timestamp by the difference between timeZone and the system time zone
- @result NSDate or nil if timeSinceEpoch was nil
- */
-+ (NSDate *)gh_parseTimeSinceEpoch:(id)timeSinceEpoch withDefault:(id)withDefault offsetForTimeZone:(NSTimeZone *)timeZone;
-
-/*!
  Get date formatted for RFC822.
 
  @result The date string, like "Wed, 01 Mar 2006 12:00:00 -0400"
