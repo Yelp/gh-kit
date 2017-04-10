@@ -35,16 +35,14 @@
 	return [NSURL gh_decode:self];
 }
 
-- (NSString *)gh_URLEncode {	
+- (NSString *)gh_URLEncode {
+#pragma clang diagnostic push
 	return [NSURL gh_encode:self];
+#pragma clang diagnostic pop
 }
 
 - (NSString *)gh_URLEncodeComponent {  
 	return [NSURL gh_encodeComponent:self];
-}
-
-- (NSString *)gh_URLEscapeAll {
-	return [NSURL gh_escapeAll:self];
 }
 
 @end

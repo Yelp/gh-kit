@@ -103,7 +103,7 @@
     [URLString appendFormat:@":%ld", (long)[[self port] integerValue]];
   }
   if ([self path]) {
-    [URLString appendString:[[self path] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    [URLString appendString:[[self path] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]]];
   }
   if (query) {
     [URLString appendFormat:@"?%@", query];
@@ -133,48 +133,15 @@
 }
 
 + (NSString *)gh_encode:(NSString *)s {
-  // Characters to maybe leave unescaped? CFSTR("~!@#$&*()=:/,;?+'")
-  return [NSMakeCollectable(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)s, CFSTR("#"), CFSTR("%^{}[]\"\\"), kCFStringEncodingUTF8)) autorelease];
+  return [s stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"!#$&'()*+,-./0123456789:;=?@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~"]];
 }
 
 + (NSString *)gh_encodeComponent:(NSString *)s {
-  // Characters to maybe leave unescaped? CFSTR("~!*()'")
-  return [NSMakeCollectable(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)s, NULL, CFSTR("@#$%^&{}[]=:/,;?+\"\\"), kCFStringEncodingUTF8)) autorelease];
-}
-
-+ (NSString *)gh_escapeAll:(NSString *)s {
-  // Characters to escape: @#$%^&{}[]=:/,;?+"\~!*()'
-  return [NSMakeCollectable(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)s, NULL, CFSTR("@#$%^&{}[]=:/,;?+\"\\~!*()'"), kCFStringEncodingUTF8)) autorelease];
+  return [s stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"!'()*-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~"]];
 }
 
 + (NSString *)gh_decode:(NSString *)s {
-  if (!s) return nil;
-  return [NSMakeCollectable(CFURLCreateStringByReplacingPercentEscapes(NULL, (CFStringRef)s, CFSTR(""))) autorelease];
+  return [s stringByRemovingPercentEncoding];
 }
-
-#if !TARGET_OS_IPHONE
-
-- (void)gh_copyLinkToPasteboard {
-  NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
-  [pasteboard declareTypes:[NSArray arrayWithObjects:NSURLPboardType, NSStringPboardType, nil] owner:self];
-  [self writeToPasteboard:pasteboard]; // For NSURLPBoardType
-  [pasteboard setString:[self absoluteString] forType:NSStringPboardType];
-}
-
-+ (BOOL)gh_openFile:(NSString *)path {
-  NSString *fileURL = [NSString stringWithFormat:@"file://%@", [self gh_encode:path]];
-  NSURL *URL = [NSURL URLWithString:fileURL];
-  return [[NSWorkspace sharedWorkspace] openURL:URL];
-}
-
-+ (void)gh_openContainingFolder:(NSString *)path {
-  BOOL isDir;
-  if ([[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir] && isDir)
-    [self gh_openFile:path];
-  else
-    [self gh_openFile:[path stringByDeletingLastPathComponent]];
-}
-
-#endif
 
 @end

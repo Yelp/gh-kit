@@ -34,12 +34,16 @@
 @interface NSString(GHURL)
 
 /*!
+ DEPRECATED. Use -[NSString stringByRemovingPercentEncoding].
+ 
  Decode URL encoded string.
  @see NSURL#gh_decode:
  */
 - (NSString *)gh_URLDecode;
 
 /*!
+ DEPRECATED. Use -[NSString stringByAddingPercentEncodingWithAllowedCharacters:] with the appropriate NSCharacterSet for each part of the URL. You can't encode a whole URL properly.
+ 
  Encode URL string.
  
     "~!@#$%^&*(){}[]=:/,;?+'\"\\" => ~!@#$%25%5E&*()%7B%7D%5B%5D=:/,;?+'%22%5C
@@ -53,9 +57,11 @@
  
  @see NSURL#gh_encode:
  */
-- (NSString *)gh_URLEncode;
+- (NSString *)gh_URLEncode DEPRECATED_MSG_ATTRIBUTE("Use -[NSString stringByAddingPercentEncodingWithAllowedCharacters:] with the appropriate NSCharacterSet for each part of the URL. You can't encode a whole URL properly.");
 
 /*!
+ DEPRECATED. Use -[NSString stringByAddingPercentEncodingWithAllowedCharacters:] with the appropriate NSCharacterSet for each part of the URL. You can't encode a whole URL properly.
+
  Encode URL string (for escaping URL key/value params).
  
     "~!@#$%^&*(){}[]=:/,;?+'\"\\" => ~!%40%23%24%25%5E%26*()%7B%7D%5B%5D%3D%3A%2F%2C%3B%3F%2B'%22%5C
@@ -70,14 +76,5 @@
  @see NSURL#gh_encodeComponent
  */
 - (NSString *)gh_URLEncodeComponent;
-
-/*!
- Encode URL string (all characters).
- 
- Encodes: @#$%^&{}[]=:/,;?+"\~!*()' 
- 
- @see NSURL#gh_escapeAll
- */
-- (NSString *)gh_URLEscapeAll;
 
 @end

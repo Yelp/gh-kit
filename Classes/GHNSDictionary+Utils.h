@@ -87,7 +87,7 @@
 
 /*!
  Number for key.
- @param key
+ @param key Key
  @result Number
  */
 - (NSNumber *)gh_numberForKey:(id)key;
@@ -129,14 +129,14 @@
 
 /*!
  Get date for key. Value should respond to doubleValue, which should be seconds since epoch GMT.
- @param key
+ @param key Key
  */
 - (NSDate *)gh_dateForKey:(id)key;
 
 /*!
  Get date for key. Value should respond to doubleValue, which should be seconds since epoch GMT.
- @param key
- @param withDefaultDate
+ @param key Key
+ @param withDefaultDate Default if value is missing or [NSNull null]
  */
 - (NSDate *)gh_dateForKey:(id)key withDefaultDate:(NSDate *)withDefaultDate;
 

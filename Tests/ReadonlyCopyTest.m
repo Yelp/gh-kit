@@ -7,7 +7,7 @@
 //
 
 
-@interface ReadonlyCopyTest : GHTestCase {
+@interface ReadonlyCopyTest : XCTestCase {
 	NSMutableArray *array_;
 }
 

@@ -8,7 +8,7 @@
 
 #import "GHNSMutableDictionary+Utils.h"
 
-@interface NSMutableDictionaryUtilsTest : GHTestCase { }
+@interface NSMutableDictionaryUtilsTest : XCTestCase { }
 @end
 
 @implementation NSMutableDictionaryUtilsTest
@@ -24,7 +24,7 @@
                                    nil];
   
 	[dict gh_mutableCompact];
-  GHAssertEqualObjects(dict, expected, nil);
+  XCTAssertEqualObjects(dict, expected);
 }
 
 @end

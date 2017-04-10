@@ -115,6 +115,8 @@
 - (NSURL *)gh_filterQueryParams:(NSArray *)filterQueryParams sort:(BOOL)sort;
 
 /*!
+ DEPRECATED. Use -[NSString stringByAddingPercentEncodingWithAllowedCharacters:] with the appropriate NSCharacterSet member for each part of a URL. You can't encode a whole URL properly.
+ 
  Encode URL string.
  
     "~!@#$%^&*(){}[]=:/,;?+'\"\\" => ~!@#$%25%5E&*()%7B%7D%5B%5D=:/,;?+'%22%5C
@@ -129,7 +131,7 @@
  @param s String to escape
  @result Encode string
  */
-+ (NSString *)gh_encode:(NSString *)s;
++ (NSString *)gh_encode:(NSString *)s DEPRECATED_MSG_ATTRIBUTE("Use -[NSString stringByAddingPercentEncodingWithAllowedCharacters:] with the appropriate NSCharacterSet for each part of the URL. You can't encode a whole URL properly.");
 
 /*!
  Encode URL string (for escaping URL key/value params).
@@ -149,49 +151,11 @@
 + (NSString *)gh_encodeComponent:(NSString *)s;
 
 /*!
- Encode URL string.
- 
- Encodes: @#$%^&{}[]=:/,;?+"\~!*()'
- 
- @param s String to encode
- @result Encoded string
- */ 
-+ (NSString *)gh_escapeAll:(NSString *)s;
-
-/*!
  Decode URL string.
  
  @param s String to decode
  @result Decoded URL string
  */
 + (NSString *)gh_decode:(NSString *)s;
-
-#if !TARGET_OS_IPHONE
-
-/*!
- Copy URL to pasteboard. For Mac OS X only.
- */
-- (void)gh_copyLinkToPasteboard;
-
-/*!
- Open file URL. 
- Opens path in Finder or whatever is registered for the file:// scheme.
- For Mac OS X only.
- 
- @param path Path to open
- @result YES if opened
- */
-+ (BOOL)gh_openFile:(NSString *)path;
-
-/*!
- Opens directory of file at path (or the path itself if it is a directory),
- in the Finder or whatever is registered for the file:// scheme.
- For Mac OS X only.
- 
- @param path Path
- */
-+ (void)gh_openContainingFolder:(NSString *)path;
-
-#endif
 
 @end

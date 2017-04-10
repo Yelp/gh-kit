@@ -9,7 +9,7 @@
 
 #import "GHNSDictionary+Utils.h"
 
-@interface NSDictionaryUtilsTest : GHTestCase { }
+@interface NSDictionaryUtilsTest : XCTestCase { }
 @end
 
 @implementation NSDictionaryUtilsTest
@@ -22,10 +22,10 @@
 												[NSNull null], @"key4", 
 												nil];
 	
-	GHAssertTrue([[dict gh_boolValueForKey:@"key1"] boolValue], nil);
-	GHAssertTrue([[dict gh_boolValueForKey:@"key2"] boolValue], nil);
-	GHAssertFalse([[dict gh_boolValueForKey:@"key3"] boolValue], nil);
-	GHAssertFalse([[dict gh_boolValueForKey:@"key4"] boolValue], nil);
+	XCTAssertTrue([[dict gh_boolValueForKey:@"key1"] boolValue]);
+	XCTAssertTrue([[dict gh_boolValueForKey:@"key2"] boolValue]);
+	XCTAssertFalse([[dict gh_boolValueForKey:@"key3"] boolValue]);
+	XCTAssertFalse([[dict gh_boolValueForKey:@"key4"] boolValue]);
 }
 
 - (void)testHasAllKeys {
@@ -38,17 +38,17 @@
 	
 	BOOL b;
 	b = [dict gh_hasAllKeys:nil];
-	GHAssertTrue(b, nil);	
+	XCTAssertTrue(b);	
 	b = [dict gh_hasAllKeys:@"key1", nil];
-	GHAssertTrue(b, nil);
+	XCTAssertTrue(b);
 	b = [dict gh_hasAllKeys:@"key1", @"key3", nil];
-	GHAssertTrue(b, nil);
+	XCTAssertTrue(b);
 	b = [dict gh_hasAllKeys:@"key1", @"key4", nil];
-	GHAssertFalse(b, nil);
+	XCTAssertFalse(b);
 	b = [dict gh_hasAllKeys:@"key1", @"key5", nil];
-	GHAssertFalse(b, nil);
+	XCTAssertFalse(b);
 	b = [dict gh_hasAllKeys:@"key5", @"key1", nil];
-	GHAssertFalse(b, nil);
+	XCTAssertFalse(b);
 }
 
 - (void)testSubsetWithKeys {
@@ -59,26 +59,26 @@
   
   NSDictionary *dictSubset = [dict gh_dictionarySubsetWithKeys:[NSArray arrayWithObject:@"key1"]];
   NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:@"1", @"key1", nil];
-  GHAssertEqualObjects(dictSubset, expected, nil);
+  XCTAssertEqualObjects(dictSubset, expected);
   
   // Test missing key
   NSDictionary *dictSubset2 = [dict gh_dictionarySubsetWithKeys:[NSArray arrayWithObject:@"key3"]];
   NSDictionary *expected2 = [NSDictionary dictionary];
-  GHAssertEqualObjects(dictSubset2, expected2, nil);  
+  XCTAssertEqualObjects(dictSubset2, expected2);  
 }
 
 - (void)testCompact {
-	NSMutableDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
                                @"1", @"key1",
                                [NSNull null], @"key2", 
                                nil];
   
-  NSMutableDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:
+  NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:
                                    @"1", @"key1",
                                    nil];
 
 	NSDictionary *after = [dict gh_compactDictionary];
-  GHAssertEqualObjects(after, expected, nil);
+  XCTAssertEqualObjects(after, expected);
 }
 
 @end

@@ -89,10 +89,5 @@
   return uniquePath;
 }
 
-+ (NSString *)gh_pathToResource:(NSString *)path {
-  if (!path) return nil;
-  return [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:path];
-}
-
 
 @end
