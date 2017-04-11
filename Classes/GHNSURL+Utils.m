@@ -37,18 +37,9 @@
 }
 
 + (NSString *)gh_dictionaryToQueryString:(NSDictionary *)queryDictionary {
-  return [self gh_dictionaryToQueryString:queryDictionary sort:NO];
-}
-
-+ (NSArray *)gh_dictionaryToQueryArray:(NSDictionary *)queryDictionary sort:(BOOL)sort encoded:(BOOL)encoded {
   if (!queryDictionary) return nil;
-  if ([queryDictionary count] == 0) return [NSArray array];
-  
-  NSMutableArray *queryStrings = [NSMutableArray arrayWithCapacity:[queryDictionary count]];
-  id enumerator = queryDictionary;
-  if (sort) enumerator = [[queryDictionary allKeys] sortedArrayUsingSelector:@selector(compare:)];
-  
-  for(NSString *key in enumerator) {
+  NSMutableArray *queryItems = [NSMutableArray array];
+  for (NSString *key in queryDictionary) {
     id value = [queryDictionary valueForKey:key];
     NSString *valueDescription = nil;
     
@@ -62,86 +53,23 @@
     }
     
     if (!valueDescription) continue;
-    
-    if (encoded) key = [self gh_encodeComponent:key];
-    if (encoded) valueDescription = [self gh_encodeComponent:valueDescription];
-    [queryStrings addObject:[NSString stringWithFormat:@"%@=%@", key, valueDescription]];
+    NSURLQueryItem *item = [NSURLQueryItem queryItemWithName:key value:valueDescription];
+    [queryItems addObject:item];
   }
-  return queryStrings;
-}
-
-+ (NSString *)gh_dictionaryToQueryString:(NSDictionary *)queryDictionary sort:(BOOL)sort {
-  return [[self gh_dictionaryToQueryArray:queryDictionary sort:sort encoded:YES] componentsJoinedByString:@"&"];
+  NSURLComponents *components = [[[NSURLComponents alloc] init] autorelease];
+  components.queryItems = queryItems;
+  return components.percentEncodedQuery;
 }
 
 + (NSMutableDictionary *)gh_queryStringToDictionary:(NSString *)string {
-  NSArray *queryItemStrings = [string componentsSeparatedByString:@"&"];
+  NSURLComponents *components = [[[NSURLComponents alloc] init] autorelease];
+  components.percentEncodedQuery = string;
   
-  NSMutableDictionary *queryDictionary = [NSMutableDictionary dictionaryWithCapacity:[queryItemStrings count]];
-  for(NSString *queryItemString in queryItemStrings) {
-    NSRange range = [queryItemString rangeOfString:@"="];
-    if (range.location != NSNotFound) {
-      NSString *key = [NSURL gh_decode:[queryItemString substringToIndex:range.location]];
-      NSString *value = [NSURL gh_decode:[queryItemString substringFromIndex:range.location + 1]];
-      [queryDictionary setObject:value forKey:key];
-    }
+  NSMutableDictionary *queryDictionary = [NSMutableDictionary dictionary];
+  for (NSURLQueryItem *queryItem in components.queryItems) {
+    queryDictionary[queryItem.name] = queryItem.value;
   }
   return queryDictionary;
-}
-
-- (NSString *)gh_sortedQuery {
-  return [NSURL gh_dictionaryToQueryString:[self gh_queryDictionary] sort:YES];
-}
-
-- (NSURL *)gh_deriveWithQuery:(NSString *)query {
-  NSMutableString *URLString = [NSMutableString stringWithFormat:@"%@://", [self scheme]];
-  if ([self user] && [self password]) [URLString appendFormat:@"%@:%@@", [self user], [self password]];
-  if ([self host]) {
-    [URLString appendString:[self host]];
-  }
-  if ([self port]) {
-    [URLString appendFormat:@":%ld", (long)[[self port] integerValue]];
-  }
-  if ([self path]) {
-    [URLString appendString:[[self path] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]]];
-  }
-  if (query) {
-    [URLString appendFormat:@"?%@", query];
-  }
-  if ([self fragment]) {
-    [URLString appendFormat:@"#%@", [self fragment]];
-  }
-  return [NSURL URLWithString:URLString];
-}
-
-- (NSURL *)gh_canonical {
-  return [self gh_canonicalWithIgnore:nil];
-}
-
-- (NSURL *)gh_canonicalWithIgnore:(NSArray *)ignore {
-  return [self gh_filterQueryParams:ignore sort:YES];
-}
-
-- (NSURL *)gh_filterQueryParams:(NSArray *)filterQueryParams sort:(BOOL)sort {
-  NSString *query = nil;
-  if ([self query]) {
-    NSMutableDictionary *queryParams = [self gh_queryDictionary];
-    for(NSString *key in filterQueryParams) [queryParams removeObjectForKey:key];
-    query = [NSURL gh_dictionaryToQueryString:queryParams sort:sort];
-  }
-  return [self gh_deriveWithQuery:query];
-}
-
-+ (NSString *)gh_encode:(NSString *)s {
-  return [s stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"!#$&'()*+,-./0123456789:;=?@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~"]];
-}
-
-+ (NSString *)gh_encodeComponent:(NSString *)s {
-  return [s stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"!'()*-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~"]];
-}
-
-+ (NSString *)gh_decode:(NSString *)s {
-  return [s stringByRemovingPercentEncoding];
 }
 
 @end

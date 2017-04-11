@@ -55,7 +55,7 @@
 
 - (void)testMonthSymbolsForFormat {
   NSArray *monthSymbols = [NSDate gh_monthSymbols];
-  NSLog(@"%@", [monthSymbols description]);
+  NSLog(@"%@", monthSymbols);
 }
 
 - (void)testMillisSince1970 {

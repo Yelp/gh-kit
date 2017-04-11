@@ -24,13 +24,6 @@
 
 @end
 
-@interface TestWithDelegate : NSObject { 
-	id delegate_;
-}
-@property (assign, nonatomic) id delegate;
-- (void)runInvokeTestProxyDelegate;
-@end
-
 @interface NSInvocationUtilsTest ()
 - (void)_invokeTesting4:(NSInteger)n;
 - (void)_invokeTestingNested:(NSInteger)n;
@@ -143,36 +136,6 @@
 	XCTAssertTrue(n == 1, @"Should be equal to 1 but was %ld", (long)n);
 	invokeTestingNestedCalled_ = YES;
 }
-/* This doesn't currently test anything, because XCTests are run on the main thread
-- (void)testProxyDelegate {
-	TestWithDelegate *test = [[TestWithDelegate alloc] init];
-	NSLog(@"Setting delegate");
-	test.delegate = [self gh_proxyOnMainThread];
-	
-	NSLog(@"Creating thread");
-	NSThread* thread = [[NSThread alloc] initWithTarget:self												
-																						 selector:@selector(_threadMain:)
-																								 object:test];
-	
-	NSLog(@"Starting thread");
-	[thread start];
-	// Wait for thread to call
-	[NSThread sleepForTimeInterval:1.0];
-	XCTAssertTrue(invokeTestProxyDelegateCalled_);
-  [thread autorelease];
-  [test autorelease];
-}
-*/
-
-- (void)_threadMain:(id)test {
-	[test runInvokeTestProxyDelegate];
-}
-
-- (void)_invokeTestProxyDelegate {
-	NSLog(@"Invoked on main thread? %d", [NSThread isMainThread]);
-	XCTAssertTrue([NSThread isMainThread], @"Delegate should have called back on main thread");
-	invokeTestProxyDelegateCalled_ = YES;
-}
 
 - (void)testArgumentProxy {
 	SEL selector = @selector(_invokeTestArgumentProxy:n:b:);
@@ -205,15 +168,5 @@
 
 // TODO(gabe): Fix test so this does something, but seems to work
 - (void)_detachCallback:(id)context {  }
-
-@end
-
-@implementation TestWithDelegate
-
-@synthesize delegate=delegate_;
-
-- (void)runInvokeTestProxyDelegate {	
-	[delegate_ _invokeTestProxyDelegate];
-}
 
 @end

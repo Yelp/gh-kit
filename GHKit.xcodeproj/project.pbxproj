@@ -94,10 +94,6 @@
 		00D02353154DF3DA003BAAC3 /* GHNSString+TimeInterval.h in Headers */ = {isa = PBXBuildFile; fileRef = 00D022A6154DF1C5003BAAC3 /* GHNSString+TimeInterval.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		00D02354154DF3DE003BAAC3 /* GHNSString+TimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022A7154DF1C5003BAAC3 /* GHNSString+TimeInterval.m */; };
 		00D02355154DF3DE003BAAC3 /* GHNSString+TimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022A7154DF1C5003BAAC3 /* GHNSString+TimeInterval.m */; };
-		00D02356154DF3E0003BAAC3 /* GHNSString+URL.h in Headers */ = {isa = PBXBuildFile; fileRef = 00D022A8154DF1C5003BAAC3 /* GHNSString+URL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		00D02357154DF3E0003BAAC3 /* GHNSString+URL.h in Headers */ = {isa = PBXBuildFile; fileRef = 00D022A8154DF1C5003BAAC3 /* GHNSString+URL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		00D02358154DF3E4003BAAC3 /* GHNSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022A9154DF1C5003BAAC3 /* GHNSString+URL.m */; };
-		00D02359154DF3E4003BAAC3 /* GHNSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022A9154DF1C5003BAAC3 /* GHNSString+URL.m */; };
 		00D0235A154DF3E6003BAAC3 /* GHNSString+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 00D022AA154DF1C5003BAAC3 /* GHNSString+Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		00D0235B154DF3E7003BAAC3 /* GHNSString+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 00D022AA154DF1C5003BAAC3 /* GHNSString+Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		00D0235C154DF3EC003BAAC3 /* GHNSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D022AB154DF1C5003BAAC3 /* GHNSString+Utils.m */; };
@@ -217,8 +213,6 @@
 		00D022A5154DF1C5003BAAC3 /* GHNSString+HMAC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GHNSString+HMAC.m"; sourceTree = "<group>"; };
 		00D022A6154DF1C5003BAAC3 /* GHNSString+TimeInterval.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHNSString+TimeInterval.h"; sourceTree = "<group>"; };
 		00D022A7154DF1C5003BAAC3 /* GHNSString+TimeInterval.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GHNSString+TimeInterval.m"; sourceTree = "<group>"; };
-		00D022A8154DF1C5003BAAC3 /* GHNSString+URL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHNSString+URL.h"; sourceTree = "<group>"; };
-		00D022A9154DF1C5003BAAC3 /* GHNSString+URL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GHNSString+URL.m"; sourceTree = "<group>"; };
 		00D022AA154DF1C5003BAAC3 /* GHNSString+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHNSString+Utils.h"; sourceTree = "<group>"; };
 		00D022AB154DF1C5003BAAC3 /* GHNSString+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GHNSString+Utils.m"; sourceTree = "<group>"; };
 		00D022AC154DF1C5003BAAC3 /* GHNSString+XML.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHNSString+XML.h"; sourceTree = "<group>"; };
@@ -358,8 +352,6 @@
 				00D022A5154DF1C5003BAAC3 /* GHNSString+HMAC.m */,
 				00D022A6154DF1C5003BAAC3 /* GHNSString+TimeInterval.h */,
 				00D022A7154DF1C5003BAAC3 /* GHNSString+TimeInterval.m */,
-				00D022A8154DF1C5003BAAC3 /* GHNSString+URL.h */,
-				00D022A9154DF1C5003BAAC3 /* GHNSString+URL.m */,
 				00D022AA154DF1C5003BAAC3 /* GHNSString+Utils.h */,
 				00D022AB154DF1C5003BAAC3 /* GHNSString+Utils.m */,
 				00D022AC154DF1C5003BAAC3 /* GHNSString+XML.h */,
@@ -493,7 +485,6 @@
 				00D02346154DF3C2003BAAC3 /* GHNSObject+Utils.h in Headers */,
 				00D0234E154DF3D2003BAAC3 /* GHNSString+HMAC.h in Headers */,
 				00D02352154DF3D9003BAAC3 /* GHNSString+TimeInterval.h in Headers */,
-				00D02356154DF3E0003BAAC3 /* GHNSString+URL.h in Headers */,
 				00D0235A154DF3E6003BAAC3 /* GHNSString+Utils.h in Headers */,
 				00D0235E154DF3EF003BAAC3 /* GHNSString+XML.h in Headers */,
 				00D02362154DF3F6003BAAC3 /* GHNSStringEnumerator.h in Headers */,
@@ -535,7 +526,6 @@
 				00D02347154DF3C3003BAAC3 /* GHNSObject+Utils.h in Headers */,
 				00D0234F154DF3D2003BAAC3 /* GHNSString+HMAC.h in Headers */,
 				00D02353154DF3DA003BAAC3 /* GHNSString+TimeInterval.h in Headers */,
-				00D02357154DF3E0003BAAC3 /* GHNSString+URL.h in Headers */,
 				00D0235B154DF3E7003BAAC3 /* GHNSString+Utils.h in Headers */,
 				00D0235F154DF3EF003BAAC3 /* GHNSString+XML.h in Headers */,
 				00D02363154DF3F6003BAAC3 /* GHNSStringEnumerator.h in Headers */,
@@ -683,7 +673,6 @@
 				00D02348154DF3C6003BAAC3 /* GHNSObject+Utils.m in Sources */,
 				00D02350154DF3D7003BAAC3 /* GHNSString+HMAC.m in Sources */,
 				00D02354154DF3DE003BAAC3 /* GHNSString+TimeInterval.m in Sources */,
-				00D02358154DF3E4003BAAC3 /* GHNSString+URL.m in Sources */,
 				00D0235C154DF3EC003BAAC3 /* GHNSString+Utils.m in Sources */,
 				00D02360154DF3F4003BAAC3 /* GHNSString+XML.m in Sources */,
 				00D02364154DF3FC003BAAC3 /* GHNSStringEnumerator.m in Sources */,
@@ -720,7 +709,6 @@
 				00D02349154DF3C7003BAAC3 /* GHNSObject+Utils.m in Sources */,
 				00D02351154DF3D7003BAAC3 /* GHNSString+HMAC.m in Sources */,
 				00D02355154DF3DE003BAAC3 /* GHNSString+TimeInterval.m in Sources */,
-				00D02359154DF3E4003BAAC3 /* GHNSString+URL.m in Sources */,
 				00D0235D154DF3ED003BAAC3 /* GHNSString+Utils.m in Sources */,
 				00D02361154DF3F4003BAAC3 /* GHNSString+XML.m in Sources */,
 				00D02365154DF3FD003BAAC3 /* GHNSStringEnumerator.m in Sources */,

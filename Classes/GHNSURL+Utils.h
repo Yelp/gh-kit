@@ -47,115 +47,11 @@
 + (NSString *)gh_dictionaryToQueryString:(NSDictionary *)queryDictionary;
 
 /*!
- Convert dictionary to URL query string.
- Escapes any encoded characters.
- 
- @param queryDictionary Dictionary
- @param sort If YES, will sort items
- @result Query string, key1=value1&amp;key2=value2
- */
-+ (NSString *)gh_dictionaryToQueryString:(NSDictionary *)queryDictionary sort:(BOOL)sort;
-
-/*!
- Convert dictionary to array of query strings.
- 
- @param queryDictionary Dictionary
- @param sort If YES, will sort items
- @param encoded If YES, will be URL component encoded
- @result Query strings, ['key1=value1', 'key2=value2']
- */
-+ (NSArray *)gh_dictionaryToQueryArray:(NSDictionary *)queryDictionary sort:(BOOL)sort encoded:(BOOL)encoded;
-
-/*!
  Convert URL query string to dictionary.
  
  @param string URL params string, key1=value1&amp;key2=value2
  @result Dictionary
  */
 + (NSMutableDictionary *)gh_queryStringToDictionary:(NSString *)string;
-
-/*!
- Get query string, sorted by key. 
- For example, "b=c&amp;a=d" is returned as "a=d&amp;b=c". 
- 
- @result Sorted query string
- */
-- (NSString *)gh_sortedQuery;
-
-/*!
- Derive new URL with a new query. All other fields should be the same.
- 
- @param query Query string
- @result URL with new query
- */
-- (NSURL *)gh_deriveWithQuery:(NSString *)query;
-
-/*!
- Canonical form of URL.
- 
- @result Canonical URL
- */
-- (NSURL *)gh_canonical;
-
-/*!
- Canonical form of URL.
- 
- @param ignore Do not include the set of query params
- @result Canonical URL
- */
-- (NSURL *)gh_canonicalWithIgnore:(NSArray *)ignore;
-
-/*!
- Remove query params.
- 
- @param filterQueryParams List of keys to filter 
- @param sort Whether to sort query params
- @result URL without query params.
- */
-- (NSURL *)gh_filterQueryParams:(NSArray *)filterQueryParams sort:(BOOL)sort;
-
-/*!
- DEPRECATED. Use -[NSString stringByAddingPercentEncodingWithAllowedCharacters:] with the appropriate NSCharacterSet member for each part of a URL. You can't encode a whole URL properly.
- 
- Encode URL string.
- 
-    "~!@#$%^&*(){}[]=:/,;?+'\"\\" => ~!@#$%25%5E&*()%7B%7D%5B%5D=:/,;?+'%22%5C
- 
- Doesn't encode: ~!@#$&*()=:/,;?+'
- 
- Does encode: %^{}[]"\
- 
- Should be the same as javascript's encodeURI().
- See http://xkr.us/articles/javascript/encode-compare/
- 
- @param s String to escape
- @result Encode string
- */
-+ (NSString *)gh_encode:(NSString *)s DEPRECATED_MSG_ATTRIBUTE("Use -[NSString stringByAddingPercentEncodingWithAllowedCharacters:] with the appropriate NSCharacterSet for each part of the URL. You can't encode a whole URL properly.");
-
-/*!
- Encode URL string (for escaping URL key/value params).
- 
- "~!@#$%^&*(){}[]=:/,;?+'\"\\" => ~!%40%23%24%25%5E%26*()%7B%7D%5B%5D%3D%3A%2F%2C%3B%3F%2B'%22%5C
- 
- Doesn't encode: ~!*()'
- 
- Does encode: @#$%^&{}[]=:/,;?+"\
- 
- Should be the same as javascript's encodeURIComponent().
- See http://xkr.us/articles/javascript/encode-compare/
- 
- @param s String to encode
- @result Encoded string
- */
-+ (NSString *)gh_encodeComponent:(NSString *)s;
-
-/*!
- Decode URL string.
- 
- @param s String to decode
- @result Decoded URL string
- */
-+ (NSString *)gh_decode:(NSString *)s;
 
 @end
