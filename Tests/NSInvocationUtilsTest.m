@@ -17,7 +17,6 @@
 	BOOL invokeTesting4Called_;
 	BOOL invokeTestingMainThreadCalled_;
 	BOOL invokeTestingNestedCalled_;
-	BOOL invokeTestProxyDelegateCalled_;
 	BOOL invokeTestArgumentProxyCalled_;
 	BOOL invokeDetachCalled_;
 }
@@ -44,7 +43,6 @@
   invokeTesting4Called_ = NO;
   invokeTestingMainThreadCalled_ = NO;
   invokeTestingNestedCalled_ = NO;
-  invokeTestProxyDelegateCalled_ = NO;
   invokeTestArgumentProxyCalled_ = NO;
   invokeDetachCalled_ = NO;
 }
