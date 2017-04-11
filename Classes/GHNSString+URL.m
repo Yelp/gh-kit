@@ -36,9 +36,7 @@
 }
 
 - (NSString *)gh_URLEncode {
-#pragma clang diagnostic push
 	return [NSURL gh_encode:self];
-#pragma clang diagnostic pop
 }
 
 - (NSString *)gh_URLEncodeComponent {  
