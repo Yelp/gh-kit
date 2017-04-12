@@ -29,8 +29,16 @@
 
 #import "GHNSURL+Utils.h"
 
+/**
+ NSURLComponents conforms to RFC 3986, which has subtle incompatibilities with the more commonly seen RFC 1738 (JavaScript, Python, etc.), e.g. + in a query component will be escaped under RFC 1738 but not RFC 3986.
+ For compatibility, we escape using the most widely agreed-upon set of allowed characters.
+ */
+static NSString * RFC1738EscapedString(NSString *s) {
+  return [s stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"!'()*-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~"]];
+}
 
 @implementation NSURL(GHUtils)
+
 
 - (NSMutableDictionary *)gh_queryDictionary {
   return [NSURL gh_queryStringToDictionary:[self query]];
@@ -53,12 +61,10 @@
     }
     
     if (!valueDescription) continue;
-    NSURLQueryItem *item = [NSURLQueryItem queryItemWithName:key value:valueDescription];
+    NSString *item = [NSString stringWithFormat:@"%@=%@", RFC1738EscapedString(key), RFC1738EscapedString(valueDescription)];
     [queryItems addObject:item];
   }
-  NSURLComponents *components = [[[NSURLComponents alloc] init] autorelease];
-  components.queryItems = queryItems;
-  return components.percentEncodedQuery;
+  return [queryItems componentsJoinedByString:@"&"];
 }
 
 + (NSMutableDictionary *)gh_queryStringToDictionary:(NSString *)string {

@@ -50,14 +50,14 @@
 	NSArray *array1 = [NSArray arrayWithObjects:@"va", @"vb", @"vc", nil];
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:array1, @"key1", @"value2", @"key2", nil];
 	NSString *s = [NSURL gh_dictionaryToQueryString:dict];
-	XCTAssertEqualObjects(s, @"key1=va,vb,vc&key2=value2");	
+	XCTAssertEqualObjects(s, @"key1=va%2Cvb%2Cvc&key2=value2");
 }
 
 - (void)testQueryDictionaryWithSet {
 	NSSet *set1 = [NSSet setWithObjects:@"va", @"vb", nil];
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:set1, @"key1", nil];
 	NSString *s = [NSURL gh_dictionaryToQueryString:dict];
-	XCTAssertTrue([s isEqualToString:@"key1=va,vb"] || [s isEqualToString:@"key1=vb,va"]);
+	XCTAssertTrue([s isEqualToString:@"key1=va%2Cvb"] || [s isEqualToString:@"key1=vb%2Cva"]);
 }
 
 @end
