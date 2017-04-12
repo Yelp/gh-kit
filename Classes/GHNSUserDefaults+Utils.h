@@ -103,7 +103,6 @@
 
  @param obj Object (should be NSCoding)
  @param forKey Key
- @result Object from data for key
  */
 - (void)gh_setObjectAsData:(id)obj forKey:(NSString *)forKey;
 
