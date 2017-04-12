@@ -8,7 +8,7 @@
 
 #import "GHNSMutableArray+Utils.h"
 
-@interface NSMutableArrayUtilsTest : GHTestCase { }
+@interface NSMutableArrayUtilsTest : XCTestCase { }
 @end
 
 @implementation NSMutableArrayUtilsTest
@@ -20,7 +20,7 @@
 	[array gh_insertObjects:objects atIndex:1];
 	
 	NSArray *expected = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
-	GHAssertEqualObjects(array, expected, nil);	
+	XCTAssertEqualObjects(array, expected);	
 }
 
 - (void)testInsertObjectsAtIndexEmpty {
@@ -30,36 +30,36 @@
 	[array gh_insertObjects:objects atIndex:0];
 	
 	NSArray *expected = [NSArray array];
-	GHAssertEqualObjects(array, expected, nil);
+	XCTAssertEqualObjects(array, expected);
 }	
 
 - (void)testCompact {
   NSMutableArray *array = [NSMutableArray arrayWithObjects:@"1", @"2", [NSNull null], nil];
   [array gh_mutableCompact];
 	NSMutableArray *expected = [NSMutableArray arrayWithObjects:@"1", @"2", nil];
-	GHAssertEqualObjects(array, expected, nil);
+	XCTAssertEqualObjects(array, expected);
   
   NSMutableArray *array2 = [NSMutableArray arrayWithObjects:@"1", @"2", @"3", nil];
   [array2 gh_mutableCompact];
 	NSMutableArray *expected2 = [NSMutableArray arrayWithObjects:@"1", @"2", @"3", nil];
-	GHAssertEqualObjects(array2, expected2, nil);
+	XCTAssertEqualObjects(array2, expected2);
   
   NSMutableArray *array3 = [NSMutableArray array];
   [array3 gh_mutableCompact];
 	NSMutableArray *expected3 = [NSMutableArray array];
-	GHAssertEqualObjects(array3, expected3, nil);
+	XCTAssertEqualObjects(array3, expected3);
   
   NSMutableArray *array4 = [NSMutableArray arrayWithObject:[NSNull null]];
   [array4 gh_mutableCompact];
 	NSMutableArray *expected4 = [NSMutableArray array];
-	GHAssertEqualObjects(array4, expected4, nil);
+	XCTAssertEqualObjects(array4, expected4);
 }
 
 - (void)testAddObjectIfNotNil {
   NSMutableArray *array = [NSMutableArray array];
   [array gh_addObject:nil];
   [array gh_addObject:@"1"];
-  GHAssertTrue([array count] == 1, nil);
+  XCTAssertTrue([array count] == 1);
 }
 
 - (void)testReplaceObject {
@@ -67,26 +67,26 @@
 
   NSMutableArray *emptyArray = [NSMutableArray array];
   index = [emptyArray gh_replaceObject:@"1" withObject:nil];
-  GHAssertEquals(index, (NSUInteger)NSNotFound, nil);
+  XCTAssertEqual(index, (NSUInteger)NSNotFound);
   
   NSMutableArray *array = [NSMutableArray arrayWithObject:@"1"];
   index = [array gh_replaceObject:@"1" withObject:@"2"];
-  GHAssertEquals(index, (NSUInteger)0, nil);
+  XCTAssertEqual(index, (NSUInteger)0);
   NSMutableArray *expected1 = [NSMutableArray arrayWithObject:@"2"];
-	GHAssertEqualObjects(array, expected1, nil);
+	XCTAssertEqualObjects(array, expected1);
   
   index = [array gh_replaceObject:@"1" withObject:@"3"];
-  GHAssertEquals(index, (NSUInteger)NSNotFound, nil);
-	GHAssertEqualObjects(array, expected1, nil);
+  XCTAssertEqual(index, (NSUInteger)NSNotFound);
+	XCTAssertEqualObjects(array, expected1);
 }
 
 - (void)testRemoveLastObject {
   NSMutableArray *array = [NSMutableArray arrayWithObject:@"1"];
   id obj = [array gh_removeLastObject];
-  GHAssertEqualObjects(obj, @"1", nil);
+  XCTAssertEqualObjects(obj, @"1");
   NSMutableArray *expected = [NSMutableArray array];
-	GHAssertEqualObjects(array, expected, nil);
-  GHAssertNil([array gh_removeLastObject], nil);
+	XCTAssertEqualObjects(array, expected);
+  XCTAssertNil([array gh_removeLastObject]);
 }
 
 @end

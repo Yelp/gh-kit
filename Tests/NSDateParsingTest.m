@@ -8,7 +8,7 @@
 
 #import "GHNSDate+Formatters.h"
 
-@interface NSDateParsingTest : GHTestCase { }
+@interface NSDateParsingTest : XCTestCase { }
 @end
 
 @interface NSDate (Private)
@@ -21,7 +21,7 @@
   NSString *rfc822 = @"Sun, 06 Nov 1994 08:49:37 +0000";
   NSDate *date = [[NSDate alloc] initWithString:@"1994-11-06 08:49:37 +0000"];
   NSString *formatted = [date gh_formatRFC822];
-  GHAssertEqualObjects(formatted, rfc822, @"Should conform to RFC822 date");  
+  XCTAssertEqualObjects(formatted, rfc822, @"Should conform to RFC822 date");  
 }
 
 - (void)testParseHTTPDate {
@@ -34,13 +34,13 @@
   NSDate *parsed = nil;
   
   parsed = [NSDate gh_parseHTTP:rfc1123];
-  GHAssertEqualObjects(parsed, date, @"Should conform to RFC1123 date");
+  XCTAssertEqualObjects(parsed, date, @"Should conform to RFC1123 date");
   
   parsed = [NSDate gh_parseHTTP:rfc850];
-  GHAssertEqualObjects(parsed, date, @"Should conform to RFC850/1036 date");
+  XCTAssertEqualObjects(parsed, date, @"Should conform to RFC850/1036 date");
   
   parsed = [NSDate gh_parseHTTP:ascTime];
-  GHAssertEqualObjects(parsed, date, @"Should conform to ASCTime date");
+  XCTAssertEqualObjects(parsed, date, @"Should conform to ASCTime date");
 }
 
 - (void)testOffset {
@@ -49,7 +49,7 @@
   NSDate *date = [NSDate date];
   NSDate *newDate = [NSDate gh_parseTimeSinceEpoch:[NSNumber numberWithDouble:[date timeIntervalSince1970]] withDefault:nil offsetForTimeZone:[NSTimeZone timeZoneWithName:@"America/Los_Angeles"]];
   // Times should be three hours (in seconds) apart
-  GHAssertEqualsWithAccuracy(([newDate timeIntervalSince1970] - [date timeIntervalSince1970]), (3.0 * 60.0 * 60.0), 0.01, nil);
+  XCTAssertEqualWithAccuracy(([newDate timeIntervalSince1970] - [date timeIntervalSince1970]), (3.0 * 60.0 * 60.0), 0.01);
 }
 
 

@@ -106,22 +106,6 @@
  */
 + (BOOL)gh_isBlank:(NSString *)s;
 
-#if !TARGET_OS_IPHONE
-/*!
- Create attributed string that truncates in the middle.
- 
- @result Attributed string that truncates in the middle.
- */
-- (NSAttributedString *)gh_truncateMiddle;
-
-/*!
- Get mime type for extension.
- 
- @result Mime type for extension
- */
-- (NSString *)gh_mimeTypeForExtension;
-#endif
-
 /*!
  Check if string contains ANY characters from a string.
  

@@ -87,12 +87,4 @@
  */
 + (BOOL)gh_ensureDirectoryExists:(NSString *)directory created:(BOOL *)created error:(NSError **)error;
 
-/*!
- Path to resource in main bundle.
- 
- @param path Path
- @result Full path in resource in main bundle.
- */
-+ (NSString *)gh_pathToResource:(NSString *)path;
-
 @end

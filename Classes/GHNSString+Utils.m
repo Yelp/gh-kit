@@ -77,29 +77,6 @@
 	return [self compare:s options:NSCaseInsensitiveSearch] == NSOrderedSame;
 }
 
-#if !TARGET_OS_IPHONE
-static NSDictionary *gh_gTruncateMiddle = nil;
-
-- (NSAttributedString *)gh_truncateMiddle {
-  if (!gh_gTruncateMiddle) {
-    NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    [style setLineBreakMode:NSLineBreakByTruncatingMiddle];
-    gh_gTruncateMiddle = [[NSDictionary alloc] initWithObjectsAndKeys:style, NSParagraphStyleAttributeName, nil];
-		[style release];
-  }
- 
-  return [[[NSAttributedString alloc] initWithString:self attributes:gh_gTruncateMiddle] autorelease];
-}
-
-- (NSString *)gh_mimeTypeForExtension {
-	// TODO(gabe): Doesn't look like css extension gets the mime type?
-  CFStringRef uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)self, NULL);    
-  NSString *mime = (NSString *)UTTypeCopyPreferredTagWithClass(uti, kUTTagClassMIMEType);
-  CFRelease(uti);
-  return [NSMakeCollectable(mime) autorelease];
-}
-#endif
-
 - (BOOL)gh_contains:(NSString *)contains options:(NSStringCompareOptions)options {
   NSRange range = [self rangeOfString:contains options:options];
   return (range.location != NSNotFound);

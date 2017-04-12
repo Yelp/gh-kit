@@ -29,26 +29,25 @@
 
 #import "GHNSURL+Utils.h"
 
+/**
+ NSURLComponents conforms to RFC 3986, which has subtle incompatibilities with the more commonly seen RFC 1738 (JavaScript, Python, etc.), e.g. + in a query component will be escaped under RFC 1738 but not RFC 3986.
+ For compatibility, we escape using the most widely agreed-upon set of allowed characters.
+ */
+static NSString * RFC1738EscapedString(NSString *s) {
+  return [s stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"!'()*-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~"]];
+}
 
 @implementation NSURL(GHUtils)
+
 
 - (NSMutableDictionary *)gh_queryDictionary {
   return [NSURL gh_queryStringToDictionary:[self query]];
 }
 
 + (NSString *)gh_dictionaryToQueryString:(NSDictionary *)queryDictionary {
-  return [self gh_dictionaryToQueryString:queryDictionary sort:NO];
-}
-
-+ (NSArray *)gh_dictionaryToQueryArray:(NSDictionary *)queryDictionary sort:(BOOL)sort encoded:(BOOL)encoded {
   if (!queryDictionary) return nil;
-  if ([queryDictionary count] == 0) return [NSArray array];
-  
-  NSMutableArray *queryStrings = [NSMutableArray arrayWithCapacity:[queryDictionary count]];
-  id enumerator = queryDictionary;
-  if (sort) enumerator = [[queryDictionary allKeys] sortedArrayUsingSelector:@selector(compare:)];
-  
-  for(NSString *key in enumerator) {
+  NSMutableArray *queryItems = [NSMutableArray array];
+  for (NSString *key in queryDictionary) {
     id value = [queryDictionary valueForKey:key];
     NSString *valueDescription = nil;
     
@@ -62,119 +61,21 @@
     }
     
     if (!valueDescription) continue;
-    
-    if (encoded) key = [self gh_encodeComponent:key];
-    if (encoded) valueDescription = [self gh_encodeComponent:valueDescription];
-    [queryStrings addObject:[NSString stringWithFormat:@"%@=%@", key, valueDescription]];
+    NSString *item = [NSString stringWithFormat:@"%@=%@", RFC1738EscapedString(key), RFC1738EscapedString(valueDescription)];
+    [queryItems addObject:item];
   }
-  return queryStrings;
-}
-
-+ (NSString *)gh_dictionaryToQueryString:(NSDictionary *)queryDictionary sort:(BOOL)sort {
-  return [[self gh_dictionaryToQueryArray:queryDictionary sort:sort encoded:YES] componentsJoinedByString:@"&"];
+  return [queryItems componentsJoinedByString:@"&"];
 }
 
 + (NSMutableDictionary *)gh_queryStringToDictionary:(NSString *)string {
-  NSArray *queryItemStrings = [string componentsSeparatedByString:@"&"];
+  NSURLComponents *components = [[[NSURLComponents alloc] init] autorelease];
+  components.percentEncodedQuery = string;
   
-  NSMutableDictionary *queryDictionary = [NSMutableDictionary dictionaryWithCapacity:[queryItemStrings count]];
-  for(NSString *queryItemString in queryItemStrings) {
-    NSRange range = [queryItemString rangeOfString:@"="];
-    if (range.location != NSNotFound) {
-      NSString *key = [NSURL gh_decode:[queryItemString substringToIndex:range.location]];
-      NSString *value = [NSURL gh_decode:[queryItemString substringFromIndex:range.location + 1]];
-      [queryDictionary setObject:value forKey:key];
-    }
+  NSMutableDictionary *queryDictionary = [NSMutableDictionary dictionary];
+  for (NSURLQueryItem *queryItem in components.queryItems) {
+    queryDictionary[queryItem.name] = queryItem.value;
   }
   return queryDictionary;
 }
-
-- (NSString *)gh_sortedQuery {
-  return [NSURL gh_dictionaryToQueryString:[self gh_queryDictionary] sort:YES];
-}
-
-- (NSURL *)gh_deriveWithQuery:(NSString *)query {
-  NSMutableString *URLString = [NSMutableString stringWithFormat:@"%@://", [self scheme]];
-  if ([self user] && [self password]) [URLString appendFormat:@"%@:%@@", [self user], [self password]];
-  if ([self host]) {
-    [URLString appendString:[self host]];
-  }
-  if ([self port]) {
-    [URLString appendFormat:@":%ld", (long)[[self port] integerValue]];
-  }
-  if ([self path]) {
-    [URLString appendString:[[self path] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-  }
-  if (query) {
-    [URLString appendFormat:@"?%@", query];
-  }
-  if ([self fragment]) {
-    [URLString appendFormat:@"#%@", [self fragment]];
-  }
-  return [NSURL URLWithString:URLString];
-}
-
-- (NSURL *)gh_canonical {
-  return [self gh_canonicalWithIgnore:nil];
-}
-
-- (NSURL *)gh_canonicalWithIgnore:(NSArray *)ignore {
-  return [self gh_filterQueryParams:ignore sort:YES];
-}
-
-- (NSURL *)gh_filterQueryParams:(NSArray *)filterQueryParams sort:(BOOL)sort {
-  NSString *query = nil;
-  if ([self query]) {
-    NSMutableDictionary *queryParams = [self gh_queryDictionary];
-    for(NSString *key in filterQueryParams) [queryParams removeObjectForKey:key];
-    query = [NSURL gh_dictionaryToQueryString:queryParams sort:sort];
-  }
-  return [self gh_deriveWithQuery:query];
-}
-
-+ (NSString *)gh_encode:(NSString *)s {
-  // Characters to maybe leave unescaped? CFSTR("~!@#$&*()=:/,;?+'")
-  return [NSMakeCollectable(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)s, CFSTR("#"), CFSTR("%^{}[]\"\\"), kCFStringEncodingUTF8)) autorelease];
-}
-
-+ (NSString *)gh_encodeComponent:(NSString *)s {
-  // Characters to maybe leave unescaped? CFSTR("~!*()'")
-  return [NSMakeCollectable(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)s, NULL, CFSTR("@#$%^&{}[]=:/,;?+\"\\"), kCFStringEncodingUTF8)) autorelease];
-}
-
-+ (NSString *)gh_escapeAll:(NSString *)s {
-  // Characters to escape: @#$%^&{}[]=:/,;?+"\~!*()'
-  return [NSMakeCollectable(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)s, NULL, CFSTR("@#$%^&{}[]=:/,;?+\"\\~!*()'"), kCFStringEncodingUTF8)) autorelease];
-}
-
-+ (NSString *)gh_decode:(NSString *)s {
-  if (!s) return nil;
-  return [NSMakeCollectable(CFURLCreateStringByReplacingPercentEscapes(NULL, (CFStringRef)s, CFSTR(""))) autorelease];
-}
-
-#if !TARGET_OS_IPHONE
-
-- (void)gh_copyLinkToPasteboard {
-  NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
-  [pasteboard declareTypes:[NSArray arrayWithObjects:NSURLPboardType, NSStringPboardType, nil] owner:self];
-  [self writeToPasteboard:pasteboard]; // For NSURLPBoardType
-  [pasteboard setString:[self absoluteString] forType:NSStringPboardType];
-}
-
-+ (BOOL)gh_openFile:(NSString *)path {
-  NSString *fileURL = [NSString stringWithFormat:@"file://%@", [self gh_encode:path]];
-  NSURL *URL = [NSURL URLWithString:fileURL];
-  return [[NSWorkspace sharedWorkspace] openURL:URL];
-}
-
-+ (void)gh_openContainingFolder:(NSString *)path {
-  BOOL isDir;
-  if ([[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir] && isDir)
-    [self gh_openFile:path];
-  else
-    [self gh_openFile:[path stringByDeletingLastPathComponent]];
-}
-
-#endif
 
 @end
