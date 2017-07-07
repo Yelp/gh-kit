@@ -47,7 +47,8 @@ static NSString * RFC1738EscapedString(NSString *s) {
 + (NSString *)gh_dictionaryToQueryString:(NSDictionary *)queryDictionary {
   if (!queryDictionary) return nil;
   NSMutableArray *queryItems = [NSMutableArray array];
-  for (NSString *key in queryDictionary) {
+  NSArray *sortedKeys = [[queryDictionary allKeys] sortedArrayUsingSelector:@selector(compare:)];
+  for (NSString *key in sortedKeys) {
     id value = [queryDictionary valueForKey:key];
     NSString *valueDescription = nil;
     
