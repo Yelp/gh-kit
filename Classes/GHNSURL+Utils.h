@@ -39,7 +39,7 @@
 - (NSMutableDictionary *)gh_queryDictionary;
 
 /*!
- Dictionary to query string. Escapes any encoded characters.
+ Dictionary to query string. Escapes any encoded characters. Sorts query params alphabetically by key.
  
  @param queryDictionary Dictionary of key value params
  @result Query string, key1=value1&amp;key2=value2
