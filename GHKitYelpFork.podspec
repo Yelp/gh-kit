@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "GHKitYelpFork"
-  s.version      = "2.0.0"
+  s.version      = "2.1.0"
   s.summary      = "The GHKit framework is a set of extensions and utilities for Mac OS X and iOS."
   s.homepage     = "http://github.com/Yelp/gh-kit"
   s.license      = "MIT"
