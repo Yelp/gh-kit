@@ -25,44 +25,43 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "GHKitDefines.h"
+#import <GHKit/GHKitDefines.h>
 
-#import "GHNSDate+Formatters.h"
-#import "GHNSDate+Utils.h"
+#import <GHKit/GHNSDate+Formatters.h>
+#import <GHKit/GHNSDate+Utils.h>
 
-#import "GHNSFileManager+Utils.h"
+#import <GHKit/GHNSFileManager+Utils.h>
 
-#import "GHNSString+HMAC.h"
-#import "GHNSString+TimeInterval.h"
-#import "GHNSString+Utils.h"
+#import <GHKit/GHNSString+HMAC.h>
+#import <GHKit/GHNSString+TimeInterval.h>
+#import <GHKit/GHNSString+Utils.h>
 
-#import "GHNSNumber+Utils.h"
+#import <GHKit/GHNSNumber+Utils.h>
 
-#import "GHNSURL+Utils.h"
+#import <GHKit/GHNSURL+Utils.h>
 
-#import "GHNSArray+Utils.h"
+#import <GHKit/GHNSArray+Utils.h>
 
-#import "GHNSDictionary+Utils.h"
-#import "GHNSDictionary+NSNull.h"
-#import "GHNSMutableArray+Utils.h"
-#import "GHNSMutableDictionary+Utils.h"
-#import "GHReversableDictionary.h"
+#import <GHKit/GHNSDictionary+Utils.h>
+#import <GHKit/GHNSDictionary+NSNull.h>
+#import <GHKit/GHNSMutableArray+Utils.h>
+#import <GHKit/GHNSMutableDictionary+Utils.h>
+#import <GHKit/GHReversableDictionary.h>
 
-#import "GHNSInvocationProxy.h"
-#import "GHNSInvocation+Utils.h"
-#import "GHNSObject+Invocation.h"
-#import "GHNSError+Utils.h"
-#import "GHNSBundle+Utils.h"
-#import "GHNSStringEnumerator.h"
+#import <GHKit/GHNSInvocationProxy.h>
+#import <GHKit/GHNSInvocation+Utils.h>
+#import <GHKit/GHNSObject+Invocation.h>
+#import <GHKit/GHNSError+Utils.h>
+#import <GHKit/GHNSBundle+Utils.h>
+#import <GHKit/GHNSStringEnumerator.h>
 
-#import "GHNSNotificationCenter+Utils.h"
-#import "GHNSObject+Swizzle.h"
+#import <GHKit/GHNSNotificationCenter+Utils.h>
+#import <GHKit/GHNSObject+Swizzle.h>
 
-#import "GHCGUtils.h"
+#import <GHKit/GHCGUtils.h>
 
-#import "GHValidators.h"
-#import "GHNSUserDefaults+Utils.h"
+#import <GHKit/GHValidators.h>
+#import <GHKit/GHNSUserDefaults+Utils.h>
 
-#import "GHNSObject+Utils.h"
-#import "GHNSString+XML.h"
-
+#import <GHKit/GHNSObject+Utils.h>
+#import <GHKit/GHNSString+XML.h>
