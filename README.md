@@ -1,28 +1,40 @@
 GHKit
 ========
 
-The GHKit framework is a set of extensions and utilities for Mac OS X and iOS.
+The GHKit framework is a set of extensions and utilities for iOS.
 
 
 Install
 -------
 
-GHKit assumes that you are using a modern Xcode project building to the DerivedData directory. Confirm your settings
-via the "File" menu > "Project Settings...". On the "Build" tab within the sheet that opens, click the "Advanced..."
-button and confirm that your "Build Location" is the "Derived Data Location".
-
-1. Add Git submodule to your project: `git submodule add git://github.com/gabriel/gh-kit.git GHKit`
-1. Add cross-project reference by dragging **GHKit.xcodeproj** to your project
-1. Open build settings editor for your project
-1. Add the following **Header Search Paths** (including the quotes): `"$(BUILT_PRODUCTS_DIR)/../../Headers"`
-1. Add **Other Linker Flags** for `-ObjC -all_load`
-1. Open target settings editor for the target you want to link GHKit into
-1. Add direct dependency on the **GHKit** aggregate target
-1. Link against GHKit:
-    1. **libGHKit.a** on iOS
-    1. **GHKit.framework** on OS X
+### Cocoapods
+1. Add `pod 'GHKitYelpFork', '~> version'` to your Podfile
+1. Run `pod install`
 1. Import the GHKit headers via `#import <GHKit/GHKit.h>`
 1. Build the project to verify installation is successful.
+
+### Carthage
+1. Add `github "Yelp/gh-kit" ~> version` to your Cartfile
+1. Run `carthage update`
+1. On your application targets’ _General_ settings tab, in the “Linked Frameworks and Libraries” section, drag and drop `GHKit.framework` from the [Carthage/Build][] folder on disk.
+1. On your application targets’ _Build Phases_ settings tab, click the _+_ icon and choose _New Run Script Phase_. Create a Run Script in which you specify your shell (ex: `/bin/sh`), add the following contents to the script area below the shell:
+
+    ```sh
+    /usr/local/bin/carthage copy-frameworks
+    ```
+
+1. Add the path to the framework under “Input Files":
+
+    ```
+    $(SRCROOT)/Carthage/Build/iOS/GHKit.framework
+    ```
+
+1. Add the path to the copied framework to the “Output Files”:
+
+    ```
+    $(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/GHKit.framework
+    ```
+
 
 
 Install (Docset)
